@@ -1,0 +1,123 @@
+miinalar@DESKTOP-CMK7CRA:~/ot_viikko1/tiedostoja$ git log --stat | cat
+commit 4a37933256a6ca3a522333bcc0eaed29f4b9b9a3
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 20:05:43 2020 +0200
+
+    viimeistely
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 8de084a37b2fda228da20986ddd88815d2fa0cba
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 20:01:05 2020 +0200
+
+    uusia tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit ca0a1e8d45e52f65683af498330981ed471b16fd
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:56:15 2020 +0200
+
+    yleistä sekoilua
+
+ eka.txt    | 14 +++++++-------
+ kolmas.txt |  2 +-
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+commit 0908ec39b2f7eb33edd57139982634546b5dab26
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:53:56 2020 +0200
+
+    uudelleennimetty tiedosto
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a0584c6fa42a52d10209dc762fdadef4571f2d29
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:51:36 2020 +0200
+
+    poistettu mem
+
+ mem.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3e7f751710efb88c6b6028cead0688b5f5ad0b71
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:50:58 2020 +0200
+
+    varmistus
+
+ mem.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit da88ff7048dcc1cc157203c42b47cf4e9c9070e8
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:50:16 2020 +0200
+
+    poistettu toinen
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 33979557a1582d35ccd9bb0b15de1f6026870967
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:45:40 2020 +0200
+
+    laivastonorppa
+
+ tiedosto.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 365e64aee4aed2b0c91d2fe9c6b8a2d63128d255
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:42:24 2020 +0200
+
+    lipsum
+
+ tiedosto.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit 57e4e0fd63f812f9b91889d2bba68abcf73d42ff
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:22:24 2020 +0200
+
+    lisätty kansio ja neljäs tiedosto
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a9a457c67bd2e3e48bc7c939938e44f424f14b4c
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:20:59 2020 +0200
+
+    luotu kolmas, muokattu toista ja kolmatta
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 98d70d34726269fe149ef388094c3b5464c74567
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:17:46 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit fcfaca7647502c617b0a325682cf346ed6c69a70
+Author: Risto Miinalainen <risto.miinalainen@gmail.com>
+Date:   Tue Mar 17 19:16:18 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
