@@ -1,5 +1,8 @@
 # ReMorse
 
+## Dokumentointi
+[Vaatimusmäärittely](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+
 ## Tehtävät
 
 ### Viikko 1
