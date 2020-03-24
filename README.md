@@ -1,4 +1,4 @@
-# Ohjelmistotekniikka, harjoitustyö
+# ReMorse
 
 ## Tehtävät
 
@@ -7,4 +7,9 @@
 [gitlog.txt](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
 [komentorivi.txt](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-Ja näin tehdään konflikti!
+
+### Viikko 2
+
+[testikattavuus.png](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
+
+
