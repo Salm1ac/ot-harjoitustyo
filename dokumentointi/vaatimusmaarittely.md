@@ -16,11 +16,11 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, joten käyttäjärooleja ei täs
 - Minipeli 2: tunnista kokonaisia sanoja kunnes määrätty virhemäärä ylittyy
 - Käyttäjä saa pisteitä oikeista vastauksista
 - Graafinen käyttöliittymä
- - Pääruutu, josta voi klikata auki minipelin
- - Minipelissä morsekoodi esitetään vilkkuvalla valolla, äänellä tai molemmilla 
- (siis toteutetaan vähintään yksi näistä)
- - Vastaukset rekisteröidään näppäimistöltä
- - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan
+  - Pääruutu, josta voi klikata auki minipelin
+  - Minipelissä morsekoodi esitetään vilkkuvalla valolla, äänellä tai molemmilla 
+  (siis toteutetaan vähintään yksi näistä)
+  - Vastaukset rekisteröidään näppäimistöltä
+  - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan
  
 ## Toimintaympäristön rajoitteet
 
