@@ -6,8 +6,6 @@
 package remorse.domain;
 
 import java.util.HashMap;
-import java.lang.StringBuilder;
-
 /**
  *
  * @author risto

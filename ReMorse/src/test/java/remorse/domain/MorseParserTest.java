@@ -8,10 +8,7 @@ package remorse.domain;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Scanner;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -26,7 +23,7 @@ public class MorseParserTest {
     @Before
     public void setUp() {
         HashMap<Character, String> alphabet = new HashMap<>();
-        try(Scanner alphabetScanner = new Scanner(Paths.get("alphabet.txt"))) {
+        try(Scanner alphabetScanner = new Scanner(Paths.get("alphabet.txt"), "utf-8")) {
             while(alphabetScanner.hasNextLine()) {
                 String line = alphabetScanner.nextLine();
                 String[] pair = line.split(" ");
@@ -44,5 +41,10 @@ public class MorseParserTest {
     @Test
     public void parserReturnsCorrectString() {
         assertEquals("-.- .. ... ... .-", parser.parseString("kissa"));
+    }
+    
+    @Test
+    public void parserIgnoresCase() {
+        assertEquals(".--. . ... ..- ... .. . -. ..", parser.parseString("pEsuSIenI"));
     }
 }
