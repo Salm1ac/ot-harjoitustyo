@@ -21,6 +21,15 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, joten käyttäjärooleja ei täs
   (siis toteutetaan vähintään yksi näistä)
   - Vastaukset rekisteröidään näppäimistöltä
   - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan
+  
+## Jatkokehitysideat
+
+- Lisää minipelejä
+  - Minipeli 3: tunnista sarja yksittäisiä merkkejä mahdollisimman nopeasti
+  - Minipeli 4: tunnista sarja kokonaisia sanoja mahdollisimman nopeasti
+- Pistetaulukot
+- Tietokannan käyttö ainakin pistetaulukoihin
+- Hienompi käyttöliittymä
  
 ## Toimintaympäristön rajoitteet
 
