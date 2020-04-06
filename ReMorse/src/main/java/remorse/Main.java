@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 import remorse.domain.MorseParser;
+import remorse.ui.ReMorseUI;
 
 /**
  *
@@ -16,6 +17,7 @@ import remorse.domain.MorseParser;
  */
 public class Main {
     public static void main(String[] args) {
+        /*
         HashMap<Character, String> alphabet = new HashMap<>();
         try(Scanner alphabetScanner = new Scanner(Paths.get("alphabet.txt"), "utf-8")) {
             while(alphabetScanner.hasNextLine()) {
@@ -71,6 +73,7 @@ public class Main {
         }
         
         System.out.println("Näkemiin!");
-        
+        */
+        ReMorseUI.main(args);
     }
 }
