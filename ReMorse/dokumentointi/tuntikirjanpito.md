@@ -7,3 +7,4 @@ Päivä | Tunnit | Mitä tein
 31.3. | 1.5    | Karvalakkikäyttis
 7.4.  | 2      | JavaFX-alkeita
 7.4.  | 1      | FXML-opettelua
+7.4.  | 2      | GUI käyttöön

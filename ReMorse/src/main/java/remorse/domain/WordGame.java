@@ -15,9 +15,10 @@ public class WordGame {
     
     private final MorseParser parser;
     private final Random random;
-    private final String[] words = {"kenttä", "potku", "kettu", "hissi", "katko", "takoi",
-                            "rikos", "pirinä", "pentti", "heheh", "pihdit",
-                            "koita", "tulos", "pommi", "passi", "lahti"};
+    private final String[] words = {
+        "kenttä", "potku", "kettu", "hissi", "katko", "takoi",
+        "rikos", "pirinä", "pentti", "heheh", "pihdit",
+        "koita", "tulos", "pommi", "passi", "lahti"};
     private int points = 0;
     private int errors = 0;
     private boolean isOngoing = false;
@@ -45,7 +46,9 @@ public class WordGame {
             return true;
         } else {
             errors++;
-            if (errors > 2) isOngoing = false;
+            if (errors > 2) {
+                isOngoing = false;
+            }
             return false;
         }
     }    

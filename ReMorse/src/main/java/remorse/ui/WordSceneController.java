@@ -71,7 +71,9 @@ public class WordSceneController implements Initializable {
     
     @FXML
     private void guessInputAction(ActionEvent event) {
-        if (!wordGame.isIsOngoing()) return;
+        if (!wordGame.isIsOngoing()) {
+            return;
+        }
         wordGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
@@ -79,7 +81,9 @@ public class WordSceneController implements Initializable {
         correct = nextWord[0];
         morseContainer.setText(nextWord[1]);
         guessInput.clear();
-        if (!wordGame.isIsOngoing()) guessInput.setVisible(false);
+        if (!wordGame.isIsOngoing()) {
+            guessInput.setVisible(false);
+        }
     }
 
     /**

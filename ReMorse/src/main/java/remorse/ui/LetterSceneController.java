@@ -72,7 +72,9 @@ public class LetterSceneController implements Initializable {
     
     @FXML
     private void guessInputAction(ActionEvent event) {
-        if (!letterGame.isIsOngoing()) return;
+        if (!letterGame.isIsOngoing()) {
+            return;
+        }
         letterGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
@@ -80,7 +82,9 @@ public class LetterSceneController implements Initializable {
         correct = nextLetter[0];
         morseContainer.setText(nextLetter[1]);
         guessInput.clear();
-        if (!letterGame.isIsOngoing()) guessInput.setVisible(false);
+        if (!letterGame.isIsOngoing()) {
+            guessInput.setVisible(false);
+        }
     }
 
     /**

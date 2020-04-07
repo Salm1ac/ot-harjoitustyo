@@ -11,16 +11,16 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, joten käyttäjärooleja ei täs
 
 ## Suunnitellut toiminnallisuudet
 
-- Käyttäjä voi käynnistää minipelejä, joissa opetellaan morsekoodia.
-- Minipeli 1: tunnista yksittäisiä merkkejä kunnes määrätty virhemäärä ylittyy
-- Minipeli 2: tunnista kokonaisia sanoja kunnes määrätty virhemäärä ylittyy
-- Käyttäjä saa pisteitä oikeista vastauksista
+- Käyttäjä voi käynnistää minipelejä, joissa opetellaan morsekoodia. (TEHTY)
+- Minipeli 1: tunnista yksittäisiä merkkejä kunnes määrätty virhemäärä ylittyy (TEHTY)
+- Minipeli 2: tunnista kokonaisia sanoja kunnes määrätty virhemäärä ylittyy (TEHTY)
+- Käyttäjä saa pisteitä oikeista vastauksista (TEHTY)
 - Graafinen käyttöliittymä
-  - Pääruutu, josta voi klikata auki minipelin
+  - Pääruutu, josta voi klikata auki minipelin (TEHTY)
   - Minipelissä morsekoodi esitetään vilkkuvalla valolla, äänellä tai molemmilla 
   (siis toteutetaan vähintään yksi näistä)
-  - Vastaukset rekisteröidään näppäimistöltä
-  - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan
+  - Vastaukset rekisteröidään näppäimistöltä (TEHTY)
+  - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan (TEHTY)
   
 ## Jatkokehitysideat
 
