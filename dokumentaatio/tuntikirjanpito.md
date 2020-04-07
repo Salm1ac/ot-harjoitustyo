@@ -8,3 +8,6 @@ Päivä | Tunnit | Mitä tein
 7.4.  | 2      | JavaFX-alkeita
 7.4.  | 1      | FXML-opettelua
 7.4.  | 2      | GUI käyttöön
+7.4.  | 1.5    | Testejä yms.
+
+Yhteensä 11 tuntia.
