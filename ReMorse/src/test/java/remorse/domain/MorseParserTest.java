@@ -22,15 +22,8 @@ public class MorseParserTest {
     
     @Before
     public void setUp() {
-        HashMap<Character, String> alphabet = new HashMap<>();
-        try(Scanner alphabetScanner = new Scanner(Paths.get("alphabet.txt"), "utf-8")) {
-            while(alphabetScanner.hasNextLine()) {
-                String line = alphabetScanner.nextLine();
-                String[] pair = line.split(" ");
-                alphabet.put(pair[0].charAt(0), pair[1]);
-            }
-        } catch (Exception e) {
-        }
+        AlphabetLoader alphabetLoader = new AlphabetLoader();
+        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("alphabet.txt");        
         parser = new MorseParser(alphabet);
     }
     

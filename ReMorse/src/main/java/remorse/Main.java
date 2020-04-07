@@ -8,7 +8,10 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import remorse.domain.AlphabetLoader;
+import remorse.domain.LetterGame;
 import remorse.domain.MorseParser;
+import remorse.domain.WordGame;
 import remorse.ui.ReMorseUI;
 
 /**
