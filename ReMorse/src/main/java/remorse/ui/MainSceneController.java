@@ -41,6 +41,14 @@ public class MainSceneController implements Initializable {
     private void handleLetter(ActionEvent event) {
         this.application.setLetterScene();
     }
+    
+    @FXML
+    private Button wordButton;
+    
+    @FXML
+    private void handleWord(ActionEvent event) {
+        this.application.setWordScene();
+    }
 
     /**
      * Initializes the controller class.

@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="remorse.ui.LetterSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="remorse.ui.WordSceneController">
    <children>
       <Button fx:id="returnButton" layoutX="266.0" layoutY="264.0" mnemonicParsing="false" onAction="#returnButtonAction" text="Valikkoon" />
-      <TextField fx:id="guessInput" visible="false" layoutX="226.0" layoutY="188.0" onAction="#guessInputAction" />
+      <TextField fx:id="guessInput" layoutX="226.0" layoutY="188.0" onAction="#guessInputAction" visible="false" />
       <Label fx:id="pointCounter" layoutX="408.0" layoutY="192.0" text="Pisteitä: 0" />
       <Label fx:id="errorCounter" layoutX="408.0" layoutY="213.0" text="Virheitä: 0" />
-      <Label layoutX="260.0" layoutY="99.0" text="Tunnista kirjain" />
+      <Label layoutX="260.0" layoutY="99.0" text="Tunnista sana" />
       <Button fx:id="newGameButton" layoutX="112.0" layoutY="188.0" mnemonicParsing="false" onAction="#newGameButtonAction" text="Uusi peli" />
-      <Pane layoutX="273.0" layoutY="116.0" prefHeight="55.0" prefWidth="53.0">
+      <Pane layoutX="239.0" layoutY="116.0" prefHeight="55.0" prefWidth="121.0">
          <children>
-            <Label fx:id="morseContainer" alignment="CENTER" layoutY="19.0" prefHeight="17.0" prefWidth="53.0" />
+            <Label fx:id="morseContainer" alignment="CENTER" layoutX="5.0" layoutY="19.0" prefHeight="17.0" prefWidth="112.0" />
          </children>
       </Pane>
    </children>

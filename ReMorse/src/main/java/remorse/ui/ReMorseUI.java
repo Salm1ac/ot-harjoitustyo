@@ -29,6 +29,7 @@ public class ReMorseUI extends Application {
     private Stage stage;
     private Scene mainScene;
     private Scene letterScene;
+    private Scene wordScene;
     
     @Override
     public void init() throws Exception {
@@ -46,8 +47,15 @@ public class ReMorseUI extends Application {
         Parent letterPane = letterSceneLoader.load();
         LetterSceneController letterSceneController = letterSceneLoader.getController();
         letterSceneController.setApplication(this);
-        letterSceneController.setParser(parser);
+        letterSceneController.createLetterGame(parser);
         letterScene = new Scene(letterPane);
+        
+        FXMLLoader wordSceneLoader = new FXMLLoader(getClass().getResource("/fxml/WordScene.fxml"));
+        Parent wordPane = wordSceneLoader.load();
+        WordSceneController wordSceneController = wordSceneLoader.getController();
+        wordSceneController.setApplication(this);
+        wordSceneController.createWordGame(parser);
+        wordScene = new Scene(wordPane);
     }
     
     @Override
@@ -64,6 +72,10 @@ public class ReMorseUI extends Application {
     
     public void setLetterScene() {
         stage.setScene(letterScene);
+    }
+    
+    public void setWordScene() {
+        stage.setScene(wordScene);
     }
 
 

@@ -6,7 +6,6 @@
 package remorse.ui;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,26 +13,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import remorse.domain.LetterGame;
 import remorse.domain.MorseParser;
+import remorse.domain.WordGame;
 
 /**
  * FXML Controller class
  *
  * @author risto
  */
-public class LetterSceneController implements Initializable {
-    
+public class WordSceneController implements Initializable {
+
     private ReMorseUI application;
-    private LetterGame letterGame;
+    private WordGame wordGame;
     private String correct;
     
     public void setApplication(ReMorseUI application) {
         this.application = application;
     }
     
-    public void createLetterGame(MorseParser parser) {
-        this.letterGame = new LetterGame(parser);
+    public void createWordGame(MorseParser parser) {
+        this.wordGame = new WordGame(parser);
     }
     
     @FXML
@@ -61,26 +60,26 @@ public class LetterSceneController implements Initializable {
     
     @FXML
     private void newGameButtonAction() {
-        letterGame.newGame();
-        pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
-        errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
+        wordGame.newGame();
+        pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
+        errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
         guessInput.setVisible(true);
-        String[] nextLetter = letterGame.nextLetter();
-        correct = nextLetter[0];
-        morseContainer.setText(nextLetter[1]);
+        String[] nextWord = wordGame.nextWord();
+        correct = nextWord[0];
+        morseContainer.setText(nextWord[1]);
     }      
     
     @FXML
     private void guessInputAction(ActionEvent event) {
-        if (!letterGame.isIsOngoing()) return;
-        letterGame.checkGuess(guessInput.getText(), correct);
-        pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
-        errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
-        String[] nextLetter = letterGame.nextLetter();
-        correct = nextLetter[0];
-        morseContainer.setText(nextLetter[1]);
+        if (!wordGame.isIsOngoing()) return;
+        wordGame.checkGuess(guessInput.getText(), correct);
+        pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
+        errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
+        String[] nextWord = wordGame.nextWord();
+        correct = nextWord[0];
+        morseContainer.setText(nextWord[1]);
         guessInput.clear();
-        if (!letterGame.isIsOngoing()) guessInput.setVisible(false);
+        if (!wordGame.isIsOngoing()) guessInput.setVisible(false);
     }
 
     /**
