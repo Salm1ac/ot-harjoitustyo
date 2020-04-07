@@ -11,6 +11,8 @@ Eikös sitä sanottu että kannattaa tehdä hyötysovellus?
 
 ## Dokumentointi
 
-[Vaatimusmäärittely](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[Työaikakirjanpito](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentointi/tuntikirjanpito.md)
+[Työaikakirjanpito](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+[Arkkitehtuuri](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
