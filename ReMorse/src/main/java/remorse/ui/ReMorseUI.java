@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import remorse.domain.AlphabetLoader;
 import remorse.domain.MorseParser;
 
 /**
@@ -31,16 +32,8 @@ public class ReMorseUI extends Application {
     
     @Override
     public void init() throws Exception {
-        HashMap<Character, String> alphabet = new HashMap<>();
-        try(Scanner alphabetScanner = new Scanner(Paths.get("alphabet.txt"), "utf-8")) {
-            while(alphabetScanner.hasNextLine()) {
-                String line = alphabetScanner.nextLine();
-                String[] pair = line.split(" ");
-                alphabet.put(pair[0].charAt(0), pair[1]);
-            }
-        } catch (Exception e) {
-            System.out.println("Virhe tiedostoa luettaessa: " + e.getMessage());
-        }
+        AlphabetLoader alphabetLoader = new AlphabetLoader();
+        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("alphabet.txt");        
         MorseParser parser = new MorseParser(alphabet);
         
         FXMLLoader mainSceneLoader = new FXMLLoader(getClass().getResource("/fxml/MainScene.fxml"));
@@ -52,6 +45,8 @@ public class ReMorseUI extends Application {
         FXMLLoader letterSceneLoader = new FXMLLoader(getClass().getResource("/fxml/LetterScene.fxml"));
         Parent letterPane = letterSceneLoader.load();
         LetterSceneController letterSceneController = letterSceneLoader.getController();
+        letterSceneController.setApplication(this);
+        letterSceneController.setParser(parser);
         letterScene = new Scene(letterPane);
     }
     
