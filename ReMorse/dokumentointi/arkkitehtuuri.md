@@ -1,0 +1,1 @@
+!(kuvat/arkkitehtuuri.png)
