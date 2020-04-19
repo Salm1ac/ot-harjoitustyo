@@ -9,5 +9,6 @@ Päivä | Tunnit | Mitä tein
 7.4.  | 1      | FXML-opettelua
 7.4.  | 2      | GUI käyttöön
 7.4.  | 1.5    | Testejä yms.
+19.4. | 2      | Java- ja Maven-vääntöä
 
-Yhteensä 11 tuntia.
+Yhteensä 13 tuntia.
