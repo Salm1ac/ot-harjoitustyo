@@ -7,13 +7,17 @@ package remorse.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import remorse.domain.MorseParser;
+import remorse.domain.MorseSequence;
 import remorse.domain.WordGame;
 
 /**
@@ -27,6 +31,18 @@ public class WordSceneController implements Initializable {
     private WordGame wordGame;
     private String correct;
     
+    private MorseSequence sequence = new MorseSequence();
+    private AnimationTimer timer = new AnimationTimer() {
+        @Override
+        public void handle(long l) {
+            if (sequence.nextBit()) {
+                morseLight.setFill(Color.GOLD);
+            } else {
+                morseLight.setFill(Color.SIENNA);
+            }
+        }
+    };
+    
     public void setApplication(ReMorseUI application) {
         this.application = application;
     }
@@ -36,10 +52,14 @@ public class WordSceneController implements Initializable {
     }
     
     @FXML
+    private Circle morseLight;
+    @FXML
     private Button returnButton;
     
     @FXML
     private void returnButtonAction() {
+        timer.stop();
+        wordGame.stopGame();
         application.setMainScene();
     } 
     
@@ -60,12 +80,15 @@ public class WordSceneController implements Initializable {
     
     @FXML
     private void newGameButtonAction() {
+        timer.stop();
         wordGame.newGame();
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
         guessInput.setVisible(true);
         String[] nextWord = wordGame.nextWord();
         correct = nextWord[0];
+        sequence.createSequence(nextWord[1]);
+        timer.start();
         morseContainer.setText(nextWord[1]);
     }      
     
@@ -74,16 +97,20 @@ public class WordSceneController implements Initializable {
         if (!wordGame.isIsOngoing()) {
             return;
         }
+        timer.stop();
         wordGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
         String[] nextWord = wordGame.nextWord();
         correct = nextWord[0];
+        sequence.createSequence(nextWord[1]);
         morseContainer.setText(nextWord[1]);
         guessInput.clear();
         if (!wordGame.isIsOngoing()) {
             guessInput.setVisible(false);
+            return;
         }
+        timer.start();
     }
 
     /**

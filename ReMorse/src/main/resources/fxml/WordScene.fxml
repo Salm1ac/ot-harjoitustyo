@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="remorse.ui.WordSceneController">
    <children>
@@ -14,10 +15,11 @@
       <Label fx:id="errorCounter" layoutX="408.0" layoutY="213.0" text="Virheitä: 0" />
       <Label layoutX="260.0" layoutY="99.0" text="Tunnista sana" />
       <Button fx:id="newGameButton" layoutX="112.0" layoutY="188.0" mnemonicParsing="false" onAction="#newGameButtonAction" text="Uusi peli" />
-      <Pane layoutX="239.0" layoutY="116.0" prefHeight="55.0" prefWidth="121.0">
+      <Pane layoutX="273.0" layoutY="127.0" prefHeight="55.0" prefWidth="53.0">
          <children>
-            <Label fx:id="morseContainer" alignment="CENTER" layoutX="5.0" layoutY="19.0" prefHeight="17.0" prefWidth="112.0" />
+            <Circle fx:id="morseLight" fill="SIENNA" layoutX="27.0" layoutY="28.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
+      <Label fx:id="morseContainer" alignment="CENTER" layoutX="401.0" layoutY="127.0" prefHeight="17.0" prefWidth="128.0" />
    </children>
 </AnchorPane>

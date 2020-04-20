@@ -58,6 +58,12 @@ public class WordGame {
         points = 0;
         isOngoing = true;
     }
+    
+    public void stopGame() {
+        errors = 0;
+        points = 0;
+        isOngoing = false;
+    }
 
     public int getPoints() {
         return points;
