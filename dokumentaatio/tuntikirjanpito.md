@@ -12,5 +12,7 @@ Päivä | Tunnit | Mitä tein
 19.4. | 2      | Java- ja Maven-vääntöä
 20.4. | 2.5    | Vilkkuvalo
 21.4. | 3.5    | Testejä yms. 
+21.4. | 1      | Dedisvalmistautuminen
+21.4. | 0.5    | Dokumentointi
 
-Yhteensä 19 tuntia.
+Yhteensä 20.5 tuntia.
