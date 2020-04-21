@@ -17,7 +17,7 @@ public class AlphabetLoader {
     
     public HashMap<Character, String> loadAlphabet(String file) {
         HashMap<Character, String> alphabet = new HashMap<>();
-        try (Scanner alphabetScanner = new Scanner(Paths.get(file), "utf-8")) {
+        try (Scanner alphabetScanner = new Scanner(getClass().getResourceAsStream(file))) {
             while (alphabetScanner.hasNextLine()) {
                 String line = alphabetScanner.nextLine();
                 String[] pair = line.split(" ");

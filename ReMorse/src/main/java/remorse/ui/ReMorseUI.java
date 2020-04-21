@@ -28,7 +28,7 @@ public class ReMorseUI extends Application {
     @Override
     public void init() throws Exception {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
-        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("alphabet.txt");        
+        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         MorseParser parser = new MorseParser(alphabet);
         
         FXMLLoader mainSceneLoader = new FXMLLoader(getClass().getResource("/fxml/MainScene.fxml"));

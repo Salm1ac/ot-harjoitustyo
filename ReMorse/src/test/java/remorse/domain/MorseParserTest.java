@@ -23,7 +23,7 @@ public class MorseParserTest {
     @Before
     public void setUp() {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
-        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("alphabet.txt");        
+        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         parser = new MorseParser(alphabet);
     }
     

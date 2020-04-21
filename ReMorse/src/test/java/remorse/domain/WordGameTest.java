@@ -24,7 +24,7 @@ public class WordGameTest {
     @Before
     public void setUp() {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
-        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("alphabet.txt");        
+        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         MorseParser parser = new MorseParser(alphabet);
         wordGame = new WordGame(parser, 42);
     }
