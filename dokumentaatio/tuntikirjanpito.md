@@ -11,5 +11,6 @@ Päivä | Tunnit | Mitä tein
 7.4.  | 1.5    | Testejä yms.
 19.4. | 2      | Java- ja Maven-vääntöä
 20.4. | 2.5    | Vilkkuvalo
+21.4. | 3.5    | Testejä yms. 
 
-Yhteensä 15.5 tuntia.
+Yhteensä 19 tuntia.
