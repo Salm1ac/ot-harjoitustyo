@@ -16,7 +16,7 @@ public class MorseSequence {
     private final int dotLength = 1;
     private final int dashLength = 3;
     private final int letterSpaceLength = 1;
-    private final int wordSpaceLength = 7;
+    private final int wordSpaceLength = 6; // 7-1
 
     private String morseString;
     private ArrayList<Boolean> sequenceBits;
@@ -28,6 +28,12 @@ public class MorseSequence {
         this.sequenceBits.add(false);
         this.nextIndex = 0;
     }   
+    
+    private void sequenceAdd(boolean b, int amount) {
+        for (int j = 0; j < 16 * amount; j++) {
+            sequenceBits.add(b);
+        }
+    }
         
     public void createSequence(String morse) {
         this.morseString = morse;
@@ -36,21 +42,13 @@ public class MorseSequence {
         for (int i = 0; i < morse.length(); i++) {
             char c = morse.charAt(i);
             if (c == '.') {
-                for (int j = 0; j < 16 * dotLength; j++) {
-                    sequenceBits.add(true);
-                }
+                sequenceAdd(true, dotLength);
             } else if (c == '-') {
-                for (int j = 0; j < 16 * dashLength; j++) {
-                    sequenceBits.add(true);
-                }
+                sequenceAdd(true, dashLength);
             }           
-            for (int j = 0; j < 16 * letterSpaceLength; j++) {
-                sequenceBits.add(false);
-            }
+            sequenceAdd(false, letterSpaceLength);
         }
-        for (int j = 0; j < 16 * wordSpaceLength; j++) {
-            sequenceBits.add(false);
-        }
+        sequenceAdd(false, wordSpaceLength);
     }
     
     public boolean nextBit() {

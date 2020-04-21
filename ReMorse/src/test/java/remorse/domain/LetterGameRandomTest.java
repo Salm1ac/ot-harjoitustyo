@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LetterGameTest {
+public class LetterGameRandomTest {
     
     LetterGame letterGame;
     
@@ -14,7 +14,7 @@ public class LetterGameTest {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
         HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         MorseParser parser = new MorseParser(alphabet);
-        letterGame = new LetterGame(parser, 42);
+        letterGame = new LetterGame(parser);
     }
     
     @Test
@@ -26,18 +26,6 @@ public class LetterGameTest {
     public void newGameIsOngoing() {
         letterGame.newGame();
         assertEquals(true, letterGame.isOngoing());
-    }
-    
-    @Test
-    public void nextLetterReturnsCorrectLetter() {
-        String[] pair = letterGame.nextLetter();
-        assertEquals("x", pair[0]);
-    }
-    
-    @Test
-    public void nextLetterReturnsCorrectMorseLetter() {
-        String[] pair = letterGame.nextLetter();
-        assertEquals("-..-", pair[1]);
     }
     
     @Test

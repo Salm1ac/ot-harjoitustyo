@@ -18,10 +18,12 @@ public class WordGame {
     private final String[] words = {
         "kenttä", "potku", "kettu", "hissi", "katko", "takoi",
         "rikos", "pirinä", "pentti", "heheh", "pihdit",
-        "koita", "tulos", "pommi", "passi", "lahti"};
+        "koita", "tulos", "pommi", "passi", "lahti"}; 
+    // tulevaisuudessa Kotuksen sanalista tiedostosta
+    // sanamäärä mahdollisesti kymmeniä tuhansia
     private int points = 0;
     private int errors = 0;
-    private boolean isOngoing = false;
+    private boolean ongoing = false;
 
     public WordGame(MorseParser parser, long seed) {
         this.parser = parser;
@@ -47,7 +49,7 @@ public class WordGame {
         } else {
             errors++;
             if (errors > 2) {
-                isOngoing = false;
+                ongoing = false;
             }
             return false;
         }
@@ -56,13 +58,13 @@ public class WordGame {
     public void newGame() {
         errors = 0;
         points = 0;
-        isOngoing = true;
+        ongoing = true;
     }
     
     public void stopGame() {
         errors = 0;
         points = 0;
-        isOngoing = false;
+        ongoing = false;
     }
 
     public int getPoints() {
@@ -73,8 +75,8 @@ public class WordGame {
         return errors;
     }
 
-    public boolean isIsOngoing() {
-        return isOngoing;
+    public boolean isOngoing() {
+        return ongoing;
     }
     
 }

@@ -45,7 +45,6 @@
                 <configuration>
                     <excludes>
                         <exclude>remorse/ui/*</exclude>
-                        <exclude>remorse/Main.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

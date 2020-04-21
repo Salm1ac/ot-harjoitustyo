@@ -97,7 +97,7 @@ public class LetterSceneController implements Initializable {
     
     @FXML
     private void guessInputAction(ActionEvent event) {
-        if (!letterGame.isIsOngoing()) {
+        if (!letterGame.isOngoing()) {
             return;
         }
         timer.stop();
@@ -109,7 +109,7 @@ public class LetterSceneController implements Initializable {
         sequence.createSequence(nextLetter[1]);
         morseContainer.setText(nextLetter[1]);
         guessInput.clear();
-        if (!letterGame.isIsOngoing()) {
+        if (!letterGame.isOngoing()) {
             guessInput.setVisible(false);
             return;
         }

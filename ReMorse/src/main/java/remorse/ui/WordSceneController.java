@@ -94,7 +94,7 @@ public class WordSceneController implements Initializable {
     
     @FXML
     private void guessInputAction(ActionEvent event) {
-        if (!wordGame.isIsOngoing()) {
+        if (!wordGame.isOngoing()) {
             return;
         }
         timer.stop();
@@ -106,7 +106,7 @@ public class WordSceneController implements Initializable {
         sequence.createSequence(nextWord[1]);
         morseContainer.setText(nextWord[1]);
         guessInput.clear();
-        if (!wordGame.isIsOngoing()) {
+        if (!wordGame.isOngoing()) {
             guessInput.setVisible(false);
             return;
         }

@@ -21,7 +21,7 @@ public class LetterGame {
         "s", "t", "v", "w", "x", "y", "z", "å", "ä", "ö"};
     private int points = 0;
     private int errors = 0;
-    private boolean isOngoing = false;
+    private boolean ongoing = false;
 
     public LetterGame(MorseParser parser, long seed) {
         this.parser = parser;
@@ -47,7 +47,7 @@ public class LetterGame {
         } else {
             errors++;
             if (errors > 2) {
-                isOngoing = false;
+                ongoing = false;
             }
             return false;
         }
@@ -56,13 +56,13 @@ public class LetterGame {
     public void newGame() {
         errors = 0;
         points = 0;
-        isOngoing = true;
+        ongoing = true;
     }
     
     public void stopGame() {
         errors = 0;
         points = 0;
-        isOngoing = false;
+        ongoing = false;
     }
 
     public int getPoints() {
@@ -73,8 +73,8 @@ public class LetterGame {
         return errors;
     }
 
-    public boolean isIsOngoing() {
-        return isOngoing;
+    public boolean isOngoing() {
+        return ongoing;
     }
     
     
