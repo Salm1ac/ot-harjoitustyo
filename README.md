@@ -10,6 +10,10 @@ morsekoodia, ja alkuperäinen sanalista koostuukin juuri kyseisessä pelissä tu
 ReMorse yhdistää siis ohjelmoijansa näkökulmasta videopelissä kehittymisen ja pakollisen kurssisuorituksen. 
 Eikös sitä sanottu että kannattaa tehdä hyötysovellus? 
 
+## Releaset
+
+[Viikko 5](https://github.com/Salm1ac/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Dokumentointi
 
 [Vaatimusmäärittely](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
