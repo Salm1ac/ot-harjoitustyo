@@ -14,5 +14,7 @@ Päivä | Tunnit | Mitä tein
 21.4. | 3.5    | Testejä yms. 
 21.4. | 1      | Dedisvalmistautuminen
 21.4. | 0.5    | Dokumentointi
+27.4. | 1.5    | Ääni
+27.4. | 0.5    | Refaktorointia
 
-Yhteensä 20.5 tuntia.
+Yhteensä 22.5 tuntia.
