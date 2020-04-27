@@ -86,7 +86,7 @@ public class LetterSceneController implements Initializable {
         pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
         guessInput.setVisible(true);
-        String[] nextLetter = letterGame.nextLetter();
+        String[] nextLetter = letterGame.nextPrompt();
         correct = nextLetter[0];
         sequence.createSequence(nextLetter[1]);
         timer.start();
@@ -103,7 +103,7 @@ public class LetterSceneController implements Initializable {
         letterGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
-        String[] nextLetter = letterGame.nextLetter();
+        String[] nextLetter = letterGame.nextPrompt();
         correct = nextLetter[0];
         sequence.createSequence(nextLetter[1]);
         // morseContainer.setText(nextLetter[1]);

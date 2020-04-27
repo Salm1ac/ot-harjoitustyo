@@ -30,13 +30,13 @@ public class LetterGameTest {
     
     @Test
     public void nextLetterReturnsCorrectLetter() {
-        String[] pair = letterGame.nextLetter();
+        String[] pair = letterGame.nextPrompt();
         assertEquals("x", pair[0]);
     }
     
     @Test
     public void nextLetterReturnsCorrectMorseLetter() {
-        String[] pair = letterGame.nextLetter();
+        String[] pair = letterGame.nextPrompt();
         assertEquals("-..-", pair[1]);
     }
     

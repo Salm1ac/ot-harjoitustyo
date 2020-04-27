@@ -30,13 +30,13 @@ public class WordGameTest {
     
     @Test
     public void nextWordReturnsCorrectWord() {
-        String[] pair = wordGame.nextWord();
+        String[] pair = wordGame.nextPrompt();
         assertEquals("koita", pair[0]);
     }
     
     @Test
     public void nextWordReturnsCorrectMorseWord() {
-        String[] pair = wordGame.nextWord();
+        String[] pair = wordGame.nextPrompt();
         assertEquals("-.- --- .. - .-", pair[1]);
     }
     
