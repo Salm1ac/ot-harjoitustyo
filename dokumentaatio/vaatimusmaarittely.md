@@ -17,8 +17,8 @@ Sovelluksella on vain yhdenlaisia käyttäjiä, joten käyttäjärooleja ei täs
 - Käyttäjä saa pisteitä oikeista vastauksista (TEHTY)
 - Graafinen käyttöliittymä
   - Pääruutu, josta voi klikata auki minipelin (TEHTY)
-  - Minipelissä morsekoodi esitetään vilkkuvalla valolla (TEHTY), äänellä tai molemmilla 
-  (siis toteutetaan vähintään yksi näistä)
+  - Minipelissä morsekoodi esitetään vilkkuvalla valolla, äänellä tai molemmilla 
+  (siis toteutetaan vähintään yksi näistä) (MOLEMMAT TEHTY)
   - Vastaukset rekisteröidään näppäimistöltä (TEHTY)
   - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan (TEHTY)
   
