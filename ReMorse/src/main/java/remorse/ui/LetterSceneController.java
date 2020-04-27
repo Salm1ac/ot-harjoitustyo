@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package remorse.ui;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
@@ -21,11 +15,6 @@ import remorse.domain.LetterGame;
 import remorse.domain.MorseParser;
 import remorse.domain.MorseSequence;
 
-/**
- * FXML Controller class
- *
- * @author risto
- */
 public class LetterSceneController implements Initializable {
     
     private ReMorseUI application;
@@ -33,13 +22,20 @@ public class LetterSceneController implements Initializable {
     private String correct;
     
     private MorseSequence sequence = new MorseSequence();
+    private Beeper beeper = new Beeper();
     private AnimationTimer timer = new AnimationTimer() {
         @Override
-        public void handle(long l) {
+        public void handle(long l) {            
             if (sequence.nextBit()) {
                 morseLight.setFill(Color.GOLD);
+                if (!beeper.isOn()) {
+                    beeper.turnOn();
+                }
             } else {
                 morseLight.setFill(Color.SIENNA);
+                if (beeper.isOn()) {
+                    beeper.turnOff();
+                }
             }
         }
     };
@@ -61,6 +57,7 @@ public class LetterSceneController implements Initializable {
     @FXML
     private void returnButtonAction() {
         timer.stop();
+        beeper.turnOff();
         letterGame.stopGame();
         application.setMainScene();
         
@@ -84,6 +81,7 @@ public class LetterSceneController implements Initializable {
     @FXML
     private void newGameButtonAction() {
         timer.stop();
+        beeper.turnOff();
         letterGame.newGame();
         pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
@@ -92,7 +90,7 @@ public class LetterSceneController implements Initializable {
         correct = nextLetter[0];
         sequence.createSequence(nextLetter[1]);
         timer.start();
-        morseContainer.setText(nextLetter[1]);
+        // morseContainer.setText(nextLetter[1]);
     }      
     
     @FXML
@@ -101,13 +99,14 @@ public class LetterSceneController implements Initializable {
             return;
         }
         timer.stop();
+        beeper.turnOff();
         letterGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(letterGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(letterGame.getErrors()));
         String[] nextLetter = letterGame.nextLetter();
         correct = nextLetter[0];
         sequence.createSequence(nextLetter[1]);
-        morseContainer.setText(nextLetter[1]);
+        // morseContainer.setText(nextLetter[1]);
         guessInput.clear();
         if (!letterGame.isOngoing()) {
             guessInput.setVisible(false);
@@ -116,12 +115,10 @@ public class LetterSceneController implements Initializable {
         timer.start();
     }
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
 }

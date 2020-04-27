@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package remorse.ui;
 
 import java.util.HashMap;
@@ -14,10 +9,6 @@ import javafx.stage.Stage;
 import remorse.domain.AlphabetLoader;
 import remorse.domain.MorseParser;
 
-/**
- *
- * @author risto
- */
 public class ReMorseUI extends Application {
     
     private Stage stage;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package remorse.ui;
 
 import java.net.URL;
@@ -20,11 +15,6 @@ import remorse.domain.MorseParser;
 import remorse.domain.MorseSequence;
 import remorse.domain.WordGame;
 
-/**
- * FXML Controller class
- *
- * @author risto
- */
 public class WordSceneController implements Initializable {
 
     private ReMorseUI application;
@@ -32,13 +22,20 @@ public class WordSceneController implements Initializable {
     private String correct;
     
     private MorseSequence sequence = new MorseSequence();
+    private Beeper beeper = new Beeper();
     private AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long l) {
             if (sequence.nextBit()) {
                 morseLight.setFill(Color.GOLD);
+                if (!beeper.isOn()) {
+                    beeper.turnOn();
+                }
             } else {
                 morseLight.setFill(Color.SIENNA);
+                if (beeper.isOn()) {
+                    beeper.turnOff();
+                }
             }
         }
     };
@@ -59,6 +56,7 @@ public class WordSceneController implements Initializable {
     @FXML
     private void returnButtonAction() {
         timer.stop();
+        beeper.turnOff();
         wordGame.stopGame();
         application.setMainScene();
     } 
@@ -81,6 +79,7 @@ public class WordSceneController implements Initializable {
     @FXML
     private void newGameButtonAction() {
         timer.stop();
+        beeper.turnOff();
         wordGame.newGame();
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
@@ -89,7 +88,7 @@ public class WordSceneController implements Initializable {
         correct = nextWord[0];
         sequence.createSequence(nextWord[1]);
         timer.start();
-        morseContainer.setText(nextWord[1]);
+        //morseContainer.setText(nextWord[1]);
     }      
     
     @FXML
@@ -98,13 +97,14 @@ public class WordSceneController implements Initializable {
             return;
         }
         timer.stop();
+        beeper.turnOff();
         wordGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
         String[] nextWord = wordGame.nextWord();
         correct = nextWord[0];
         sequence.createSequence(nextWord[1]);
-        morseContainer.setText(nextWord[1]);
+        //morseContainer.setText(nextWord[1]);
         guessInput.clear();
         if (!wordGame.isOngoing()) {
             guessInput.setVisible(false);
@@ -113,12 +113,10 @@ public class WordSceneController implements Initializable {
         timer.start();
     }
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
 }
