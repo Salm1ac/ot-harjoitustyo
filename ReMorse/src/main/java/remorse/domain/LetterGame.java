@@ -1,8 +1,19 @@
 package remorse.domain;
 
+/**
+ * Luokka on PointGamen erikoistapaus, jossa kysytään kirjaimia.
+ */
 public class LetterGame extends PointGame {    
-        
-    public LetterGame(MorseParser parser, long seed) {
+    
+    /**
+     * Konstruktori luo testausta varten uuden valesatunnaisen PointGamen, 
+     * jossa kysytään kirjaimia.
+     * @param parser Käytettävä parseri
+     * @param seed Satunnaislukugeneraattorin alkuarvo
+     * @see remorse.domain.PointGame
+     * @see remorse.domain.Parser
+     */
+    public LetterGame(Parser parser, long seed) {
         super(parser, seed);
         this.prompts = new String[] {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", 
@@ -10,7 +21,13 @@ public class LetterGame extends PointGame {
             "s", "t", "v", "w", "x", "y", "z", "å", "ä", "ö"};
     }
     
-    public LetterGame(MorseParser parser) {
+    /**
+     * Konstruktori luo uuden satunnaisen PointGamen, jossa kysytään kirjaimia.
+     * @param parser Käytettävä parseri
+     * @see remorse.domain.PointGame
+     * @see remorse.domain.Parser
+     */
+    public LetterGame(Parser parser) {
         super(parser);
         this.prompts = new String[] {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", 

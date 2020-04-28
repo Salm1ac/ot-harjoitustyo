@@ -11,40 +11,72 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import remorse.domain.MorseParser;
+import remorse.domain.Parser;
 import remorse.domain.MorseSequence;
 import remorse.domain.WordGame;
 
+/**
+ * Luokka ohjaa WordSceneä.
+ */
 public class WordSceneController implements Initializable {
 
     private ReMorseUI application;
     private WordGame wordGame;
     private String correct;
     
-    private MorseSequence sequence = new MorseSequence();
-    private Beeper beeper = new Beeper();
-    private AnimationTimer timer = new AnimationTimer() {
-        @Override
-        public void handle(long l) {
-            if (sequence.nextBit()) {
-                morseLight.setFill(Color.GOLD);
-                if (!beeper.isOn()) {
-                    beeper.turnOn();
-                }
-            } else {
-                morseLight.setFill(Color.SIENNA);
-                if (beeper.isOn()) {
-                    beeper.turnOff();
+    private MorseSequence sequence;
+    private Beeper beeper;
+    private AnimationTimer timer;
+    
+    /**
+     * Metodi luo bittijonon, piipittäjän ja ajastimen. Ajastin lukee
+     * bittijonosta bitin ja asettaa sen perusteella valon ja äänen päälle tai
+     * pois.
+     *
+     * @param url Ei käytössä
+     * @param rb Ei käytössä
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.MorseSequence#nextBit() 
+     * @see remorse.ui.Beeper
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        sequence = new MorseSequence();
+        beeper = new Beeper();
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                if (sequence.nextBit()) {
+                    morseLight.setFill(Color.GOLD);
+                    if (!beeper.isOn()) {
+                        beeper.turnOn();
+                    }
+                } else {
+                    morseLight.setFill(Color.SIENNA);
+                    if (beeper.isOn()) {
+                        beeper.turnOff();
+                    }
                 }
             }
-        }
-    };
+        };
+    } 
     
+    /**
+     * Metodi yhdistää ohjaimen sovellukseen.
+     * @param application Ohjainta käyttävä sovellus
+     * @see remorse.ui.ReMorseUI
+     */
     public void setApplication(ReMorseUI application) {
         this.application = application;
     }
     
-    public void createWordGame(MorseParser parser) {
+    /**
+     * Metodi luo ohjaimelle sanapelin.
+     * @param parser Käytettävä parseri
+     * @see remorse.domain.WordGame
+     * @see remorse.domain.Parser
+     */
+    public void createWordGame(Parser parser) {
         this.wordGame = new WordGame(parser);
     }
     
@@ -53,6 +85,12 @@ public class WordSceneController implements Initializable {
     @FXML
     private Button returnButton;
     
+    /**
+     * Metodi keskeyttää pelin ja palauttaa käyttäjän päävalikkoon.
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.WordGame#stopGame() 
+     * @see remorse.ui.Beeper
+     */
     @FXML
     private void returnButtonAction() {
         timer.stop();
@@ -76,6 +114,13 @@ public class WordSceneController implements Initializable {
     @FXML
     private Button newGameButton;
     
+    /**
+     * Metodi aloittaa uuden pelin.
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.MorseSequence#createSequence(java.lang.String) 
+     * @see remorse.domain.WordGame
+     * @see remorse.ui.Beeper
+     */
     @FXML
     private void newGameButtonAction() {
         timer.stop();
@@ -91,6 +136,14 @@ public class WordSceneController implements Initializable {
         //morseContainer.setText(nextWord[1]);
     }      
     
+    /**
+     * Metodi tarkistaa käyttäjän tekemän arvauksen ja påivittää näkymän.
+     * @param event Ei käytössä
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.MorseSequence#createSequence(java.lang.String) 
+     * @see remorse.domain.WordGame
+     * @see remorse.ui.Beeper
+     */
     @FXML
     private void guessInputAction(ActionEvent event) {
         if (!wordGame.isOngoing()) {
@@ -104,7 +157,6 @@ public class WordSceneController implements Initializable {
         String[] nextWord = wordGame.nextPrompt();
         correct = nextWord[0];
         sequence.createSequence(nextWord[1]);
-        //morseContainer.setText(nextWord[1]);
         guessInput.clear();
         if (!wordGame.isOngoing()) {
             guessInput.setVisible(false);
@@ -112,11 +164,5 @@ public class WordSceneController implements Initializable {
         }
         timer.start();
     }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
     
 }

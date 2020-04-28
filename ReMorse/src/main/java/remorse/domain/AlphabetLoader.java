@@ -3,8 +3,17 @@ package remorse.domain;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+* Luokka mahdollistaa käännettävän aakkoston lukemisen tiedostosta.
+*/
 public class AlphabetLoader {
     
+    /**
+     * Metodi lukee annetun tiedoston ja luo aakkostosta hajautustaulun.
+     * 
+     * @param file Luettava tiedosto
+     * @return Aakkosto ja käännökset hajautustaulussa
+     */
     public HashMap<Character, String> loadAlphabet(String file) {
         HashMap<Character, String> alphabet = new HashMap<>();
         try (Scanner alphabetScanner = new Scanner(getClass().getResourceAsStream(file), "utf-8")) {

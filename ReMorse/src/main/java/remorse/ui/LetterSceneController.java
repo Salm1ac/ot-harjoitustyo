@@ -12,39 +12,70 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import remorse.domain.LetterGame;
-import remorse.domain.MorseParser;
+import remorse.domain.Parser;
 import remorse.domain.MorseSequence;
 
+/**
+ * Luokka ohjaa LetterSceneä.
+ */
 public class LetterSceneController implements Initializable {
     
     private ReMorseUI application;
     private LetterGame letterGame;
     private String correct;
     
-    private MorseSequence sequence = new MorseSequence();
-    private Beeper beeper = new Beeper();
-    private AnimationTimer timer = new AnimationTimer() {
-        @Override
-        public void handle(long l) {            
-            if (sequence.nextBit()) {
-                morseLight.setFill(Color.GOLD);
-                if (!beeper.isOn()) {
-                    beeper.turnOn();
-                }
-            } else {
-                morseLight.setFill(Color.SIENNA);
-                if (beeper.isOn()) {
-                    beeper.turnOff();
+    private MorseSequence sequence;
+    private Beeper beeper;
+    private AnimationTimer timer;
+    
+    /**
+     * Metodi luo bittijonon, piipittäjän ja ajastimen.
+     * Ajastin lukee bittijonosta bitin ja asettaa sen perusteella 
+     * valon ja äänen päälle tai pois.
+     * @param url Ei käytössä
+     * @param rb Ei käytössä
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.MorseSequence#nextBit() 
+     * @see remorse.ui.Beeper
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        sequence = new MorseSequence();
+        beeper = new Beeper();
+        timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                if (sequence.nextBit()) {
+                    morseLight.setFill(Color.GOLD);
+                    if (!beeper.isOn()) {
+                        beeper.turnOn();
+                    }
+                } else {
+                    morseLight.setFill(Color.SIENNA);
+                    if (beeper.isOn()) {
+                        beeper.turnOff();
+                    }
                 }
             }
-        }
-    };
+        };
+    }   
     
+    /**
+     * Metodi yhdistää ohjaimen sovellukseen.
+     * @param application Ohjainta käyttävä sovellus
+     * @see remorse.ui.ReMorseUI
+     */
     public void setApplication(ReMorseUI application) {
         this.application = application;
     }
     
-    public void createLetterGame(MorseParser parser) {
+    /**
+     * Metodi luo ohjaimelle kirjainpelin.
+     * @param parser Käytettävä parseri
+     * @see remorse.domain.LetterGame
+     * @see remorse.domain.Parser
+     */
+    public void createLetterGame(Parser parser) {
         this.letterGame = new LetterGame(parser);
     }
     
@@ -54,6 +85,12 @@ public class LetterSceneController implements Initializable {
     @FXML
     private Button returnButton;
     
+    /**
+     * Metodi keskeyttää pelin ja palauttaa käyttäjän päävalikkoon.
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.LetterGame#stopGame() 
+     * @see remorse.ui.Beeper
+     */
     @FXML
     private void returnButtonAction() {
         timer.stop();
@@ -78,6 +115,13 @@ public class LetterSceneController implements Initializable {
     @FXML
     private Button newGameButton;
     
+    /**
+     * Metodi aloittaa uuden pelin.
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.LetterGame
+     * @see remorse.domain.MorseSequence#createSequence(java.lang.String) 
+     * @see remorse.ui.Beeper
+     */
     @FXML
     private void newGameButtonAction() {
         timer.stop();
@@ -90,9 +134,16 @@ public class LetterSceneController implements Initializable {
         correct = nextLetter[0];
         sequence.createSequence(nextLetter[1]);
         timer.start();
-        // morseContainer.setText(nextLetter[1]);
     }      
     
+    /**
+     * Metodi tarkistaa käyttäjän tekemän arvauksen ja päivittää näkymän.
+     * @param event Ei käytössä
+     * @see javafx.animation.AnimationTimer
+     * @see remorse.domain.LetterGame
+     * @see remorse.domain.MorseSequence#createSequence(java.lang.String) 
+     * @see remorse.ui.Beeper
+     */
     @FXML
     private void guessInputAction(ActionEvent event) {
         if (!letterGame.isOngoing()) {
@@ -106,7 +157,6 @@ public class LetterSceneController implements Initializable {
         String[] nextLetter = letterGame.nextPrompt();
         correct = nextLetter[0];
         sequence.createSequence(nextLetter[1]);
-        // morseContainer.setText(nextLetter[1]);
         guessInput.clear();
         if (!letterGame.isOngoing()) {
             guessInput.setVisible(false);
@@ -114,11 +164,5 @@ public class LetterSceneController implements Initializable {
         }
         timer.start();
     }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    
+     
 }

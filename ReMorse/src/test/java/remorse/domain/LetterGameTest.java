@@ -13,7 +13,7 @@ public class LetterGameTest {
     public void setUp() {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
         HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
-        MorseParser parser = new MorseParser(alphabet);
+        Parser parser = new Parser(alphabet);
         letterGame = new LetterGame(parser, 42);
     }
     
