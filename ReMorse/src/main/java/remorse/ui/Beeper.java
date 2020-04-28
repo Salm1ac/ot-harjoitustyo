@@ -17,7 +17,7 @@ public class Beeper {
             chan = synth.getChannels()[0];
             chan.programChange(79);
         } catch (Exception e) {
-            System.out.println("virhe");
+            System.out.println("Ilmeni MIDI-ongelma.");
         }
     }
     

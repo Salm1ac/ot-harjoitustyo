@@ -1,8 +1,5 @@
 package remorse.domain;
 
-import java.util.Random;
-
-
 public class LetterGame extends PointGame {    
         
     public LetterGame(MorseParser parser, long seed) {

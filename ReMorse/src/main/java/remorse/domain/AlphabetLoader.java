@@ -13,7 +13,8 @@ public class AlphabetLoader {
                 String[] pair = line.split(" ");
                 alphabet.put(pair[0].charAt(0), pair[1]);
             }
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            System.out.println("Virhe aakkostoa ladatessa.");
         }
         return alphabet;
     }   

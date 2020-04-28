@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package remorse.ui;
 
 import java.net.URL;
@@ -13,11 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-/**
- * FXML Controller class
- *
- * @author risto
- */
 public class MainSceneController implements Initializable {
     
     private ReMorseUI application;
@@ -50,12 +41,9 @@ public class MainSceneController implements Initializable {
         this.application.setWordScene();
     }
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
 }
