@@ -16,5 +16,7 @@ Päivä | Tunnit | Mitä tein
 21.4. | 0.5    | Dokumentointi
 27.4. | 1.5    | Ääni
 27.4. | 0.5    | Refaktorointia
+28.4. | 3      | JavaDoc ym.
+28.4. | 1      | Dokumentointi
 
-Yhteensä 22.5 tuntia.
+Yhteensä 26.5 tuntia.
