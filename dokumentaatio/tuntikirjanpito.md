@@ -18,5 +18,6 @@ Päivä | Tunnit | Mitä tein
 27.4. | 0.5    | Refaktorointia
 28.4. | 3      | JavaDoc ym.
 28.4. | 1      | Dokumentointi
+9.5.  | 2      | Sanatietokannan luonti
 
 Yhteensä 26.5 tuntia.
