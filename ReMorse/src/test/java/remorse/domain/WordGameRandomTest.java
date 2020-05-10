@@ -18,7 +18,7 @@ public class WordGameRandomTest {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
         HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         Parser parser = new Parser(alphabet);
-        dbHandler = new DatabaseHandler("jdbc:sqlite:testi2.db");
+        dbHandler = new DatabaseHandler("jdbc:sqlite:./testi2.db");
         wordGame = new WordGame(parser, dbHandler);
         dbHandler.clearWordScores();
     }

@@ -102,7 +102,6 @@ public class ReMorseUI extends Application {
             settingsScene = new Scene(settingsPane);
         } catch (Exception e) {
             System.out.println("Virhe alustuksessa.");
-            Platform.exit();
         }
         
     }
