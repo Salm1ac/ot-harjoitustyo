@@ -19,5 +19,6 @@ Päivä | Tunnit | Mitä tein
 28.4. | 3      | JavaDoc ym.
 28.4. | 1      | Dokumentointi
 9.5.  | 2      | Sanatietokannan luonti
+9.5.  | 4      | Asetukset käyttöön
 
-Yhteensä 26.5 tuntia.
+Yhteensä 32.5 tuntia.
