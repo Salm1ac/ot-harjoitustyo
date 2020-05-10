@@ -21,7 +21,9 @@ Käyttäjä voi asettaa nämä oletusasetukset mielensä mukaan. Käyttäjä voi
 Tällöin tietokannassa tulisi olla seuraavanlaiset taulut:
 
 `Words(row_id integer PRIMARY KEY, word_string varchar(50)`
+
 `LetterScores(row_id integer PRIMARY KEY, points integer, time DATETIME DEFAULT (datetime('now', 'localtime')))`
+
 `WordScores(row_id integer PRIMARY KEY, points integer, time DATETIME DEFAULT (datetime('now', 'localtime')))`
 
 Sovelluksen mukana oleva tietokanta sisältää yli 92 000 suomen kielen sanaa. Sanat on indeksoitu, joten satunnaisten 
