@@ -21,5 +21,6 @@ Päivä | Tunnit | Mitä tein
 9.5.  | 2      | Sanatietokannan luonti
 9.5.  | 4      | Asetukset käyttöön
 10.5. | 4      | Tietokanta käyttöön
+10.5. | 3      | Testit + Checkstyle
 
-Yhteensä 36.5 tuntia.
+Yhteensä 39.5 tuntia.

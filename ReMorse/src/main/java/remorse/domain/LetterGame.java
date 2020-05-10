@@ -10,9 +10,9 @@ public class LetterGame extends PointGame {
     
     private final Random random;
     private final String[] prompts = new String[] {
-            "a", "b", "c", "d", "e", "f", "g", "h", "i", 
-            "j", "k", "l", "m", "n", "o", "p", "q", "r", 
-            "s", "t", "v", "w", "x", "y", "z", "å", "ä", "ö"};
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", 
+        "j", "k", "l", "m", "n", "o", "p", "q", "r", 
+        "s", "t", "v", "w", "x", "y", "z", "å", "ä", "ö"};
     
     /**
      * Konstruktori luo testausta varten uuden valesatunnaisen PointGamen, 

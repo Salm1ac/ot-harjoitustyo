@@ -24,7 +24,7 @@ public class DatabaseHandler {
      * @return Palauttaa false jos tuli poikkeus, muuten true.
      */
     public boolean clearLetterScores() {
-        try(Connection connection = DriverManager.getConnection(dbAddress)) {
+        try (Connection connection = DriverManager.getConnection(dbAddress)) {
             Statement statement = connection.createStatement();
             statement.executeUpdate("DELETE FROM LetterScores");
             statement.close();
@@ -40,7 +40,7 @@ public class DatabaseHandler {
      * @return Palauttaa false jos tuli poikkeus, muuten true.
      */
     public boolean clearWordScores() {
-        try(Connection connection = DriverManager.getConnection(dbAddress)) {
+        try (Connection connection = DriverManager.getConnection(dbAddress)) {
             Statement statement = connection.createStatement();
             statement.executeUpdate("DELETE FROM WordScores");
             statement.close();
@@ -57,7 +57,7 @@ public class DatabaseHandler {
      * @return Palauttaa haetun sanan tai "virhe", jos tuli ongelma.
      */
     public String nextWord() {
-        try(Connection connection = DriverManager.getConnection(dbAddress)) {
+        try (Connection connection = DriverManager.getConnection(dbAddress)) {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT word_string "
                     + "FROM Words LIMIT 1 OFFSET ABS(RANDOM()) "
@@ -85,7 +85,7 @@ public class DatabaseHandler {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT points, time "
                     + "FROM LetterScores ORDER BY points DESC LIMIT 5");            
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 String points = String.valueOf(resultSet.getInt("points"));
                 String time = resultSet.getString("time");
                 HighScore score = new HighScore(points, time);
@@ -133,15 +133,14 @@ public class DatabaseHandler {
      */
     public boolean saveScore(int points, String type) {
         try (Connection connection = DriverManager.getConnection(dbAddress)) {
+            PreparedStatement ps;
             if (type.equals("letter")) {
-                PreparedStatement ps = connection.prepareStatement(
-                        "INSERT INTO LetterScores (points) VALUES (?)");
+                ps = connection.prepareStatement("INSERT INTO LetterScores (points) VALUES (?)");
                 ps.setInt(1, points);
                 ps.execute();
                 ps.close();
             } else if (type.equals("word")) {
-                PreparedStatement ps = connection.prepareStatement("INSERT INTO "
-                        + "WordScores (points) VALUES (?)");
+                ps = connection.prepareStatement("INSERT INTO WordScores (points) VALUES (?)");
                 ps.setInt(1, points);
                 ps.execute();
                 ps.close();

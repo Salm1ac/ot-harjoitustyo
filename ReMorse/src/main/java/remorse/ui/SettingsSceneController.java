@@ -68,21 +68,21 @@ public class SettingsSceneController implements Initializable {
         this.application = application;
         this.sequence = seq;
         timeUnitSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-                                    this.sequence.setTimeUnit(newValue.intValue());
-                                });
+            this.sequence.setTimeUnit(newValue.intValue());
+        });
         this.beeper = beeper;
         volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-                                    this.beeper.setVolume(newValue.intValue());
-                                });
+            this.beeper.setVolume(newValue.intValue());
+        });
         noteSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-                                    this.beeper.setNote(newValue.intValue());
-                                });
+            this.beeper.setNote(newValue.intValue());
+        });
         this.letterGame = letterGame;
         this.wordGame  = wordGame;
         maxErrorsSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-                                    this.letterGame.setMaxErrors(newValue.intValue());
-                                    this.wordGame.setMaxErrors(newValue.intValue());
-                                });
+            this.letterGame.setMaxErrors(newValue.intValue());
+            this.wordGame.setMaxErrors(newValue.intValue());
+        });
     }
     
     /**

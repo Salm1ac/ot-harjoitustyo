@@ -93,7 +93,7 @@ public class HighScoreSceneController implements Initializable {
     private void clearLettersButtonAction() {
         if (dbHandler.clearLetterScores()) {
             update();
-        };
+        }
     }
     
     /**
@@ -104,7 +104,7 @@ public class HighScoreSceneController implements Initializable {
     private void clearWordsButtonAction() {
         if (dbHandler.clearWordScores()) {
             update();
-        };
+        }
     }
     
     /**
