@@ -22,5 +22,6 @@ Päivä | Tunnit | Mitä tein
 9.5.  | 4      | Asetukset käyttöön
 10.5. | 4      | Tietokanta käyttöön
 10.5. | 3      | Testit + Checkstyle
+10.5. | 3      | Lisää Java-vääntöä
 
-Yhteensä 39.5 tuntia.
+Yhteensä 42.5 tuntia.
