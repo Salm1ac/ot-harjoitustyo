@@ -9,29 +9,21 @@ jotka on esitetty morsekoodilla, ja saa onnistumisesta pisteitä.
 
 Sovelluksella on vain yhdenlaisia käyttäjiä, joten käyttäjärooleja ei tässä tarkemmin eritellä.
 
-## Suunnitellut toiminnallisuudet
+## Toiminnallisuudet
 
-- Käyttäjä voi käynnistää minipelejä, joissa opetellaan morsekoodia. (TEHTY)
-- Minipeli 1: tunnista yksittäisiä merkkejä kunnes määrätty virhemäärä ylittyy (TEHTY)
-- Minipeli 2: tunnista kokonaisia sanoja kunnes määrätty virhemäärä ylittyy (TEHTY)
-- Käyttäjä saa pisteitä oikeista vastauksista (TEHTY)
+- Käyttäjä voi käynnistää minipelejä, joissa opetellaan morsekoodia
+- Minipeli 1: tunnista yksittäisiä merkkejä kunnes määrätty virhemäärä ylittyy
+- Minipeli 2: tunnista kokonaisia sanoja kunnes määrätty virhemäärä ylittyy 
+- Käyttäjä saa pisteitä oikeista vastauksista 
 - Graafinen käyttöliittymä
-  - Pääruutu, josta voi klikata auki minipelin (TEHTY)
-  - Minipelissä morsekoodi esitetään vilkkuvalla valolla, äänellä tai molemmilla 
-  (siis toteutetaan vähintään yksi näistä) (MOLEMMAT TEHTY)
-  - Vastaukset rekisteröidään näppäimistöltä (TEHTY)
-  - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan (TEHTY)
-  
-## Jatkokehitysideat
-
-- Lisää minipelejä
-  - Minipeli 3: tunnista sarja yksittäisiä merkkejä mahdollisimman nopeasti
-  - Minipeli 4: tunnista sarja kokonaisia sanoja mahdollisimman nopeasti
-- Pistetaulukot
-- Tietokannan käyttö ainakin pistetaulukoihin
-- Hienompi käyttöliittymä
+  - Pääruutu, josta voi klikata auki minipelin 
+  - Minipelissä morsekoodi esitetään vilkkuvalla valolla ja äänellä
+  - Vastaukset rekisteröidään näppäimistöltä
+  - Minipelin päätyttyä voi aloittaa sen uudestaan tai palata pääikkunaan
+- Pisteet talletetaan tietokantaan ja huipputuloksia voi katsoa sovelluksesta
+- Piipityksen voimakkuutta, nopeutta ja korkeutta voi säätää, samoin virheiden maksimimäärää
+  - Näille voi asettaa myös omat oletusasetukset
  
 ## Toimintaympäristön rajoitteet
 
-Sovelluksen tulee toimia Windows-koneilla ja HY:n laitoksen Cubbli-koneilla. Sovelluksen data säilytetään
-paikallisella levyllä aluksi tiedostossa, myöhemmin ehkä tietokannassa.
+Sovellus toimii ainakin Windows-koneilla ja HY:n laitoksen Cubbli-koneilla (tosin pistetaulukoita varten on varmistettava, että tietokanta ei ole lukossa). Sovelluksen data on sen sisäisessä tiedostossa ja ulkoisessa tietokannassa.
