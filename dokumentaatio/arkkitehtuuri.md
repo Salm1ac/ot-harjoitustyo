@@ -10,7 +10,7 @@ Käyttöliittymän käynnistää ReMorseUI-olio. Ohjelman käyttöliittymä on J
 
 Käyttöliittymä on eriytetty sovelluslogiikasta. Näkymien ohjaimet vain kutsuvat sovelluslogiikan luokkia ja päivittävät näkymää saamillaan tiedoilla.
 
-## Sovelluslogiikka
+## Sovelluslogiikka ja tiedostojen käsittely
 
 Ohjelman käynnistyessä DatabaseHandler-olio ottaa yhteyden tietokantaan ja AlphabetLoader-olio lukee tiedostosta morseaakkoston. Tämä aakkosto annetaan Parserille, jota PointGamet voivat sitten käyttää. PointGame on abstrakti luokka, joka sisältää minipelin logiikan. Sillä on kaksi aliluokkaa, kirjainten tunnistukseen tarkoitettu LetterGame ja sanojen tunnistukseen tarkoitettu WordGame. Lisäksi ohjelman logiikkaan liittyy MorseSequence-olioita, jotka muuntavat morsekoodia käyttöliittymän päivitykseen tarvittaviksi bittijonoiksi.
 Käyttäjän saamat pisteet talletetaan tietokantaan, josta viisi parasta voidaan noutaa pistetaulukoihin. Tässä käytetään apuna 
