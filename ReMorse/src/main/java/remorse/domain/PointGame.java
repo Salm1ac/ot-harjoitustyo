@@ -1,6 +1,6 @@
 package remorse.domain;
 
-import java.util.Random;
+import remorse.data.DatabaseHandler;
 
 /**
  * Luokka tarjoaa pelin, jossa saadaan pisteitä oikeista vastauksista.
@@ -10,45 +10,23 @@ import java.util.Random;
 public abstract class PointGame {
     
     Parser parser;
-    Random random;
-    String[] prompts;
+    DatabaseHandler dbHandler;
+    String type = "generic";
     int points = 0;
     int errors = 0;
     boolean ongoing = false;
     
     int maxErrors = 3;
-
-    /**
-     * Konstruktori luo uuden valesatunnaisen pelin testausta varten.
-     * @param parser Käytettävä parseri
-     * @param seed Satunnaislukugeneraattorin alkuarvo
-     * @see remorse.domain.Parser
-     */
-    public PointGame(Parser parser, long seed) {
-        this.parser = parser;
-        this.random = new Random(seed);        
-    }
     
     /**
      * Konstruktori luo uuden satunnaisen pelin.
      * @param parser Käytettävä parseri
+     * @param dbHandler Käytettävä tietokannan käsittelijä
      * @see remorse.domain.Parser
      */
-    public PointGame(Parser parser) {
+    public PointGame(Parser parser, DatabaseHandler dbHandler) {
         this.parser = parser;
-        this.random = new Random();
-    }
-    
-    /**
-     * Metodi arpoo satunnaisen sanan ja parsii sen.
-     * @return Pari, jossa on satunnainen sana ja sen parsittu vastine
-     * @see remorse.domain.Parser#parseString(java.lang.String) 
-     */
-    public String[] nextPrompt() {
-        int i = random.nextInt(prompts.length);
-        String original = prompts[i];
-        String parsed = parser.parseString(original);
-        return new String[] {original, parsed};
+        this.dbHandler = dbHandler;
     }
     
     /**
@@ -64,6 +42,7 @@ public abstract class PointGame {
         } else {
             errors++;
             if (errors >= maxErrors) {
+                dbHandler.saveScore(points, type);
                 ongoing = false;
             }
             return false;
@@ -74,6 +53,9 @@ public abstract class PointGame {
      * Metodi aloittaa uuden pelin.
      */
     public void newGame() {
+        if (ongoing) {
+            dbHandler.saveScore(points, type);
+        } 
         errors = 0;
         points = 0;
         ongoing = true;
@@ -83,6 +65,9 @@ public abstract class PointGame {
      * Metodi lopettaa pelin.
      */
     public void stopGame() {
+        if (ongoing) {
+            dbHandler.saveScore(points, type);
+        }        
         errors = 0;
         points = 0;
         ongoing = false;
@@ -103,5 +88,5 @@ public abstract class PointGame {
     public void setMaxErrors(int maxErrors) {
         this.maxErrors = maxErrors;
     }   
-        
+            
 }

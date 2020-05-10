@@ -1,5 +1,6 @@
 package remorse.domain;
 
+import remorse.data.AlphabetLoader;
 import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;

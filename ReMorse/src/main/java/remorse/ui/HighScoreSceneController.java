@@ -1,14 +1,15 @@
 package remorse.ui;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import remorse.data.DatabaseHandler;
+import remorse.domain.HighScore;
 
 /**
  * Luokka ohjaa HighScoreSceneä.
@@ -16,9 +17,11 @@ import javafx.scene.layout.VBox;
 public class HighScoreSceneController implements Initializable {
     
     private ReMorseUI application;
+    private DatabaseHandler dbHandler;
     
-    public void setApplication(ReMorseUI application) {
+    public void setCommons(ReMorseUI application, DatabaseHandler dbHandler) {
         this.application = application;
+        this.dbHandler = dbHandler;
     }
 
     /**
@@ -53,35 +56,35 @@ public class HighScoreSceneController implements Initializable {
     private Button returnButton;
     
     @FXML
-    public void update() throws Exception {
-        clearLettersButtonAction();
-        clearWordsButtonAction();
-        ResultSet pointScoreSet = null;
-        while (pointScoreSet.next()) {
-            Integer points = pointScoreSet.getInt("points");
-            Timestamp time = pointScoreSet.getTimestamp("time");
-            letterPoints.getChildren().add(new Label(points.toString()));
-            letterDates.getChildren().add(new Label(time.toString()));
-        }
-        ResultSet wordScoreSet = null;
-        while (wordScoreSet.next()) {
-            Integer points = wordScoreSet.getInt("points");
-            Timestamp time = wordScoreSet.getTimestamp("time");
-            wordPoints.getChildren().add(new Label(points.toString()));
-            wordDates.getChildren().add(new Label(time.toString()));
-        }
+    public void update() {
+        letterPoints.getChildren().clear();
+        letterDates.getChildren().clear();
+        wordPoints.getChildren().clear();
+        wordDates.getChildren().clear();
+        ArrayList<HighScore> letterScores = dbHandler.letterHighScores();
+        letterScores.forEach(score -> {
+            letterPoints.getChildren().add(new Label(score.getPoints()));
+            letterDates.getChildren().add(new Label(score.getTime()));
+        });
+        ArrayList<HighScore> wordScores = dbHandler.wordHighScores();
+        wordScores.forEach(score -> {
+            wordPoints.getChildren().add(new Label(score.getPoints()));
+            wordDates.getChildren().add(new Label(score.getTime()));
+        });        
     }
     
     @FXML
     private void clearLettersButtonAction() {
-        letterPoints.getChildren().clear();
-        letterDates.getChildren().clear();
+        if (dbHandler.clearLetterScores()) {
+            update();
+        };
     }
     
     @FXML
     private void clearWordsButtonAction() {
-        wordPoints.getChildren().clear();
-        wordDates.getChildren().clear();
+        if (dbHandler.clearWordScores()) {
+            update();
+        };
     }
     
     @FXML private void returnButtonAction() {

@@ -1,9 +1,11 @@
 package remorse.domain;
 
+import remorse.data.AlphabetLoader;
 import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import remorse.data.DatabaseHandler;
 
 public class LetterGameRandomTest {
     
@@ -14,7 +16,7 @@ public class LetterGameRandomTest {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
         HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         Parser parser = new Parser(alphabet);
-        letterGame = new LetterGame(parser);
+        letterGame = new LetterGame(parser, new DatabaseHandler("jdbc:sqlite:testi2.db"));
     }
     
     @Test

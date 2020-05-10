@@ -20,5 +20,6 @@ Päivä | Tunnit | Mitä tein
 28.4. | 1      | Dokumentointi
 9.5.  | 2      | Sanatietokannan luonti
 9.5.  | 4      | Asetukset käyttöön
+10.5. | 4      | Tietokanta käyttöön
 
-Yhteensä 32.5 tuntia.
+Yhteensä 36.5 tuntia.

@@ -1,9 +1,11 @@
 package remorse.domain;
 
+import remorse.data.AlphabetLoader;
 import java.util.HashMap;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import remorse.data.DatabaseHandler;
 
 public class LetterGameTest {
     
@@ -14,7 +16,7 @@ public class LetterGameTest {
         AlphabetLoader alphabetLoader = new AlphabetLoader();
         HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
         Parser parser = new Parser(alphabet);
-        letterGame = new LetterGame(parser, 42);
+        letterGame = new LetterGame(parser, new DatabaseHandler("jdbc:sqlite:testi.db"), 42);
     }
     
     @Test
@@ -30,13 +32,13 @@ public class LetterGameTest {
     
     @Test
     public void nextLetterReturnsCorrectLetter() {
-        String[] pair = letterGame.nextPrompt();
+        String[] pair = letterGame.nextLetter();
         assertEquals("x", pair[0]);
     }
     
     @Test
     public void nextLetterReturnsCorrectMorseLetter() {
-        String[] pair = letterGame.nextPrompt();
+        String[] pair = letterGame.nextLetter();
         assertEquals("-..-", pair[1]);
     }
     

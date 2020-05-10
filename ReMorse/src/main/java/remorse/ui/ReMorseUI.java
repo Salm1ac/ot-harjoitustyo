@@ -6,7 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import remorse.domain.AlphabetLoader;
+import remorse.data.AlphabetLoader;
+import remorse.data.DatabaseHandler;
 import remorse.domain.LetterGame;
 import remorse.domain.MorseSequence;
 import remorse.domain.Parser;
@@ -24,6 +25,8 @@ public class ReMorseUI extends Application {
     private Scene highScoreScene;
     private Scene settingsScene;
     
+    private HighScoreSceneController highScoreSceneController;
+    
     /**
      * Metodi alustaa sovelluksen, aakkoston ja käyttöliittymän.
      * @see remorse.domain.AlphabetLoader#loadAlphabet(java.lang.String) 
@@ -35,13 +38,14 @@ public class ReMorseUI extends Application {
      */
     @Override
     public void init() throws Exception {
+        DatabaseHandler dbHandler = new DatabaseHandler("jdbc:sqlite:remorse.db");
         AlphabetLoader alphabetLoader = new AlphabetLoader();
-        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");        
+        HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");           
         Parser parser = new Parser(alphabet);
         MorseSequence seq = new MorseSequence();
         Beeper beeper = new Beeper();
-        LetterGame letterGame = new LetterGame(parser);
-        WordGame wordGame = new WordGame(parser);
+        LetterGame letterGame = new LetterGame(parser, dbHandler);
+        WordGame wordGame = new WordGame(parser, dbHandler);
         
         FXMLLoader mainSceneLoader = new FXMLLoader(getClass().getResource("/fxml/MainScene.fxml"));
         Parent mainPane = mainSceneLoader.load();
@@ -63,8 +67,8 @@ public class ReMorseUI extends Application {
         
         FXMLLoader highScoreSceneLoader = new FXMLLoader(getClass().getResource("/fxml/HighScoreScene.fxml"));
         Parent highScorePane = highScoreSceneLoader.load();
-        HighScoreSceneController highScoreSceneController = highScoreSceneLoader.getController();
-        highScoreSceneController.setApplication(this);
+        highScoreSceneController = highScoreSceneLoader.getController();
+        highScoreSceneController.setCommons(this, dbHandler);
         highScoreScene = new Scene(highScorePane);
         
         FXMLLoader settingsSceneLoader = new FXMLLoader(getClass().getResource("/fxml/SettingsScene.fxml"));
@@ -115,6 +119,7 @@ public class ReMorseUI extends Application {
      * @see remorse.ui.HighScoreSceneController
      */
     public void setHighScoreScene() {
+        highScoreSceneController.update();
         stage.setScene(highScoreScene);
     }
     

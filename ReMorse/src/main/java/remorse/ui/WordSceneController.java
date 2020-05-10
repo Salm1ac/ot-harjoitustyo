@@ -126,7 +126,7 @@ public class WordSceneController implements Initializable {
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
         guessInput.setVisible(true);
-        String[] nextWord = wordGame.nextPrompt();
+        String[] nextWord = wordGame.nextWord();
         correct = nextWord[0];
         sequence.createSequence(nextWord[1]);
         timer.start();
@@ -151,7 +151,7 @@ public class WordSceneController implements Initializable {
         wordGame.checkGuess(guessInput.getText(), correct);
         pointCounter.setText("Pisteitä: " + String.valueOf(wordGame.getPoints()));
         errorCounter.setText("Virheitä: " + String.valueOf(wordGame.getErrors()));
-        String[] nextWord = wordGame.nextPrompt();
+        String[] nextWord = wordGame.nextWord();
         correct = nextWord[0];
         sequence.createSequence(nextWord[1]);
         guessInput.clear();
