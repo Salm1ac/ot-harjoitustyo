@@ -29,6 +29,8 @@ Eikös sitä sanottu että kannattaa tehdä hyötysovellus?
 
 [Käyttöohje](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testaus](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 ## Komentoriviohjeet
 
 ### Testaus
