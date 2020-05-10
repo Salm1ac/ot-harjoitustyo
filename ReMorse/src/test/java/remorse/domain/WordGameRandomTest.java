@@ -20,7 +20,7 @@ public class WordGameRandomTest {
         Parser parser = new Parser(alphabet);
         dbHandler = new DatabaseHandler("jdbc:sqlite:testi2.db");
         wordGame = new WordGame(parser, dbHandler);
-        dbHandler.clearLetterScores();
+        dbHandler.clearWordScores();
     }
     
     @Test
@@ -207,7 +207,7 @@ public class WordGameRandomTest {
         wordGame.newGame();
         wordGame.checkGuess("i", "k");
         wordGame.stopGame();
-        assertEquals(true, dbHandler.letterHighScores().isEmpty());
+        assertEquals(true, dbHandler.wordHighScores().isEmpty());
     }
 
     @Test
@@ -244,7 +244,7 @@ public class WordGameRandomTest {
 
     @Test
     public void highScoresHaveTimestamps() {
-        dbHandler.clearLetterScores();
+        dbHandler.clearWordScores();
         for (int i = 0; i < 10; i++) {
             wordGame.newGame();
             wordGame.checkGuess("i", "i");
