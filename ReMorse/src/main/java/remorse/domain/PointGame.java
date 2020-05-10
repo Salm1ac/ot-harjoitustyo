@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Luokka tarjoaa pelin, jossa saadaan pisteitä oikeista vastauksista.
  * Peli osaa tehdä uusia kysymys-vastaus-pareja, tarkistaa vastauksia
- * ja antaa pisteitä tai virheitä. Peli päättyy kolmesta virheestä. * 
+ * ja antaa pisteitä tai virheitä. Peli päättyy tietystä virhemäärästä.  
  */
 public abstract class PointGame {
     
@@ -15,6 +15,8 @@ public abstract class PointGame {
     int points = 0;
     int errors = 0;
     boolean ongoing = false;
+    
+    int maxErrors = 3;
 
     /**
      * Konstruktori luo uuden valesatunnaisen pelin testausta varten.
@@ -61,7 +63,7 @@ public abstract class PointGame {
             return true;
         } else {
             errors++;
-            if (errors > 2) {
+            if (errors >= maxErrors) {
                 ongoing = false;
             }
             return false;
@@ -97,6 +99,9 @@ public abstract class PointGame {
     public boolean isOngoing() {
         return ongoing;
     }
-    
-    
+
+    public void setMaxErrors(int maxErrors) {
+        this.maxErrors = maxErrors;
+    }   
+        
 }

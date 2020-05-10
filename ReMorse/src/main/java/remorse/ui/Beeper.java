@@ -14,6 +14,9 @@ public class Beeper {
     private MidiChannel chan;
     private boolean on = false;
     
+    private int note = 69;
+    private int volume = 100;
+    
     /**
      * Konstruktori avaa MIDI-syntetisaattorin ja asettaa ensimmäisen 
      * kanavan instrumentiksi siniaaltoa muistuttavan Whistlen.
@@ -31,9 +34,10 @@ public class Beeper {
     
     /**
      * Metodi aloittaa 440 Hz äänen toiston kohtalaisen kovaa.
+     * Oletuksena on nuotti 69 eli viritys-A.
      */
     public void turnOn() {
-        chan.noteOn(69, 100);
+        chan.noteOn(note, volume);
         on = true;
     }
     
@@ -41,16 +45,21 @@ public class Beeper {
      * Metodi pysäyttää äänen toiston.
      */
     public void turnOff() {
-        chan.noteOff(69);
+        chan.noteOff(note);
         on = false;
     }
 
     public boolean isOn() {
         return on;
     }
-    
-    
-    
+
+    public void setNote(int note) {
+        this.note = note;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
     
     
 }

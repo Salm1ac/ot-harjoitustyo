@@ -29,9 +29,9 @@ public class LetterSceneController implements Initializable {
     private AnimationTimer timer;
     
     /**
-     * Metodi luo bittijonon, piipittäjän ja ajastimen.
-     * Ajastin lukee bittijonosta bitin ja asettaa sen perusteella 
-     * valon ja äänen päälle tai pois.
+     * Metodi luo ohjaimen käyttämän ajastimen. Ajastin lukee
+     * bittijonosta bitin ja asettaa sen perusteella valon 
+     * ja äänen päälle tai pois.     *
      * @param url Ei käytössä
      * @param rb Ei käytössä
      * @see javafx.animation.AnimationTimer
@@ -40,8 +40,6 @@ public class LetterSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        sequence = new MorseSequence();
-        beeper = new Beeper();
         timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -62,21 +60,23 @@ public class LetterSceneController implements Initializable {
     
     /**
      * Metodi yhdistää ohjaimen sovellukseen.
+     * Samalla ohjaimelle annetaan bittijono, piipittäjä ja kirjainpeli.
      * @param application Ohjainta käyttävä sovellus
-     * @see remorse.ui.ReMorseUI
-     */
-    public void setApplication(ReMorseUI application) {
-        this.application = application;
-    }
-    
-    /**
-     * Metodi luo ohjaimelle kirjainpelin.
-     * @param parser Käytettävä parseri
+     * @param seq Ohjaimen käyttämä bittijono
+     * @param beeper Ohjaimen käyttämä piipittäjä
+     * @param letterGame Ohjaimen käyttämä kirjainpeli
      * @see remorse.domain.LetterGame
-     * @see remorse.domain.Parser
+     * @see remorse.domain.MorseSequence
+     * @see remorse.ui.ReMorseUI
+     * @see remorse.ui.Beeper
      */
-    public void createLetterGame(Parser parser) {
-        this.letterGame = new LetterGame(parser);
+    public void setCommons(ReMorseUI application, MorseSequence seq, 
+                                Beeper beeper, LetterGame letterGame) {
+        this.application = application;
+        this.sequence = seq;
+        this.beeper = beeper;
+        this.letterGame = letterGame;
+        
     }
     
     @FXML

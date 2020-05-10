@@ -12,7 +12,7 @@ public class MorseSequence {
     private final int letterSpaceLength = 1;
     private final int wordSpaceLength = 6; // 7-1
     
-    private final int timeUnit = 16;
+    private int timeUnit = 16;
 
     private ArrayList<Boolean> sequenceBits;
     private int nextIndex;
@@ -68,6 +68,16 @@ public class MorseSequence {
         return nextBit;
     }
     
+    /**
+     * Metodi asettaa käytetyn aikayksikön pituuden.
+     * Oletusarvo 16 vastaa n. 16/60 = 0.27 sekuntia.
+     * @param timeUnit Aikayksikön uusi pituus, noin timeUnit/60 s.
+     */
+    public void setTimeUnit(int timeUnit) {
+        if (timeUnit > 0) {
+            this.timeUnit = timeUnit;
+        }
+    }
     
    
     

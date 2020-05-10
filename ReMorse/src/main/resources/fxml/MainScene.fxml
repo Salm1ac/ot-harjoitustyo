@@ -10,6 +10,8 @@
          <children>
             <Button fx:id="letterButton" mnemonicParsing="false" onAction="#handleLetter" text="Harjoittele kirjaimia" />
             <Button fx:id="wordButton" mnemonicParsing="false" onAction="#handleWord" text="Harjoittele sanoja" />
+            <Button fx:id="highScoreButton" mnemonicParsing="false" onAction="#handleHighScore" text="Pistetaulukot" />
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#handleSettings" text="Asetukset" />
             <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonAction" text="Poistu" />
          </children>
       </VBox>

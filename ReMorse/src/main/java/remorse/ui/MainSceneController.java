@@ -61,6 +61,33 @@ public class MainSceneController implements Initializable {
         this.application.setWordScene();
     }
     
+    @FXML
+    private Button highScoreButton;
+        
+    /**
+     * Metodi siirtää käyttäjän pistetaulukoihin.
+     * @param event Ei käytössä
+     * @see remorse.ui.HighScoreSceneController
+     */
+    @FXML
+    private void handleHighScore(ActionEvent event) {
+        this.application.setHighScoreScene();
+    }
+       
+    @FXML
+    private Button settingsButton;
+        
+    /**
+     * Metodi siirtää käyttäjän asetuksiin.
+     * @param event Ei käytössä
+     * @see remorse.ui.HighScoreSceneController
+     */
+    @FXML
+    private void handleSettings(ActionEvent event) {
+        this.application.setSettingsScene();
+    }
+
+    
     /**
      * Metodi ei tee tällä hetkellä mitään alustusta.
      * @param url Ei käytössä
