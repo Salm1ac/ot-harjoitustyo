@@ -50,7 +50,7 @@ public class ReMorseUI extends Application {
         int timeUnit = 16;
         int maxErrors = 2;
         try {
-            properties.load(new FileInputStream("config.properties"));
+            properties.load(new FileInputStream("./config.properties"));
             database = properties.getProperty("database", "remorse.db");
             volume = Integer.valueOf(properties.getProperty("volume", "100"));
             note = Integer.valueOf(properties.getProperty("note", "69"));
@@ -60,7 +60,7 @@ public class ReMorseUI extends Application {
             System.out.println("Virhe asetuksissa, käytetään oletusasetuksia.");
         }
         
-        DatabaseHandler dbHandler = new DatabaseHandler("jdbc:sqlite:" + database);
+        DatabaseHandler dbHandler = new DatabaseHandler("jdbc:sqlite:./" + database);
         AlphabetLoader alphabetLoader = new AlphabetLoader();
         HashMap<Character, String> alphabet = alphabetLoader.loadAlphabet("/alphabets/alphabet.txt");           
         Parser parser = new Parser(alphabet);
