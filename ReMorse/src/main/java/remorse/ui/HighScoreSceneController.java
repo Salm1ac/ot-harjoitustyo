@@ -19,6 +19,12 @@ public class HighScoreSceneController implements Initializable {
     private ReMorseUI application;
     private DatabaseHandler dbHandler;
     
+    /**
+     * Metodi yhdistää ohjaimen sovellukseen ja antaa sille tietokannan käsittelijän.
+     * @param application Ohjainta käyttävä sovellus
+     * @param dbHandler Ohjaimen käyttämä tietokannan käsittelijä
+     * @see remorse.data.DatabaseHandler
+     */
     public void setCommons(ReMorseUI application, DatabaseHandler dbHandler) {
         this.application = application;
         this.dbHandler = dbHandler;
@@ -55,6 +61,11 @@ public class HighScoreSceneController implements Initializable {
     @FXML
     private Button returnButton;
     
+    /**
+     * Metodi päivittää pistetaulukot tietokannan käsittelijän avulla.
+     * @see remorse.data.DatabaseHandler#letterHighScores() 
+     * @see remorse.data.DatabaseHandler#wordHighScores() 
+     */
     @FXML
     public void update() {
         letterPoints.getChildren().clear();
@@ -73,6 +84,11 @@ public class HighScoreSceneController implements Initializable {
         });        
     }
     
+    
+    /**
+     * Metodi tyhjentää tietokannan käsittelijän avulla kirjainpelin pistetaulukot.
+     * @see remorse.data.DatabaseHandler#clearLetterScores() 
+     */
     @FXML
     private void clearLettersButtonAction() {
         if (dbHandler.clearLetterScores()) {
@@ -80,6 +96,10 @@ public class HighScoreSceneController implements Initializable {
         };
     }
     
+    /**
+     * Metodi tyhjentää tietokannan käsittelijän avulla sanapelin pistetaulukot.
+     * @see remorse.data.DatabaseHandler#clearWordScores() 
+     */
     @FXML
     private void clearWordsButtonAction() {
         if (dbHandler.clearWordScores()) {
@@ -87,6 +107,9 @@ public class HighScoreSceneController implements Initializable {
         };
     }
     
+    /**
+     * Metodi palauttaa käyttäjän päävalikkoon.
+     */
     @FXML private void returnButtonAction() {
         application.setMainScene();
     }

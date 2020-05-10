@@ -1,7 +1,7 @@
 package remorse.domain;
 
 /**
- * Luokka kuvaa huipputuloksia.
+ * Luokka kuvaa huipputuloksia. Tulokseen sisältyy pistemäärä ja saavutusaika.
  */
 public class HighScore {
     

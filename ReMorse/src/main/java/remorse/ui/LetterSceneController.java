@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import remorse.domain.LetterGame;
-import remorse.domain.Parser;
 import remorse.domain.MorseSequence;
 
 /**

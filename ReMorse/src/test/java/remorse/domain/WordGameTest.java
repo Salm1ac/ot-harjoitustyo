@@ -2,9 +2,9 @@ package remorse.domain;
 
 import remorse.data.AlphabetLoader;
 import java.util.HashMap;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import remorse.data.DatabaseHandler;
 
 public class WordGameTest {
@@ -33,13 +33,13 @@ public class WordGameTest {
     @Test
     public void nextWordReturnsCorrectWord() {
         String[] pair = wordGame.nextWord();
-        assertEquals("koita", pair[0]);
+        assertEquals("heheh", pair[0]);
     }
     
     @Test
     public void nextWordReturnsCorrectMorseWord() {
         String[] pair = wordGame.nextWord();
-        assertEquals("-.- --- .. - .-", pair[1]);
+        assertEquals(".... . .... . ....", pair[1]);
     }
     
     @Test
@@ -119,4 +119,5 @@ public class WordGameTest {
         wordGame.stopGame();
         assertEquals(false, wordGame.isOngoing());
     }
+    
 }

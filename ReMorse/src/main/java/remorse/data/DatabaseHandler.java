@@ -19,6 +19,10 @@ public class DatabaseHandler {
         this.dbAddress = dbAddress;
     }
         
+    /**
+     * Metodi tyhjentää kirjainpelin pistetaulukon tietokannasta.
+     * @return Palauttaa false jos tuli poikkeus, muuten true.
+     */
     public boolean clearLetterScores() {
         try(Connection connection = DriverManager.getConnection(dbAddress)) {
             Statement statement = connection.createStatement();
@@ -31,6 +35,10 @@ public class DatabaseHandler {
         }
     }
     
+    /**
+     * Metodi tyhjentää kirjainpelin pistetaulukon tietokannasta.
+     * @return Palauttaa false jos tuli poikkeus, muuten true.
+     */
     public boolean clearWordScores() {
         try(Connection connection = DriverManager.getConnection(dbAddress)) {
             Statement statement = connection.createStatement();
@@ -43,6 +51,11 @@ public class DatabaseHandler {
         }
     }
     
+    /**
+     * Metodi hakee tietokannasta satunnaisen sanan. 
+     * Haun pitäisi olla tehokas suurissakin tietokannoissa.
+     * @return Palauttaa haetun sanan tai "virhe", jos tuli ongelma.
+     */
     public String nextWord() {
         try(Connection connection = DriverManager.getConnection(dbAddress)) {
             Statement statement = connection.createStatement();
@@ -62,6 +75,10 @@ public class DatabaseHandler {
         }
     }
     
+    /**
+     * Metodi hakee listan kirjainpelin huipputuloksista.
+     * @return Palauttaa listan, jossa on viisi parasta tulosta aikoineen.
+     */
     public ArrayList<HighScore> letterHighScores() {
         ArrayList<HighScore> scoreList = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(dbAddress)) {
@@ -83,6 +100,10 @@ public class DatabaseHandler {
         }
     }
     
+    /**
+     * Metodi hakee listan sanapelin huipputuloksista.
+     * @return Palauttaa listan, jossa on viisi parasta tulosta aikoineen.
+     */
     public ArrayList<HighScore> wordHighScores() {
         ArrayList<HighScore> scoreList = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(dbAddress)) {
@@ -104,6 +125,12 @@ public class DatabaseHandler {
         }
     }
     
+    /**
+     * Metodi tallettaa pistemäärän tietokantaan.
+     * @param points Käyttäjän saama pistemäärä
+     * @param type Tallettavan pelin tyyppi
+     * @return Palauttaa false, jos tuli poikkeus, muuten true.
+     */
     public boolean saveScore(int points, String type) {
         try (Connection connection = DriverManager.getConnection(dbAddress)) {
             if (type.equals("letter")) {

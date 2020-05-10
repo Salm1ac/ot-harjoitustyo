@@ -16,7 +16,7 @@ public abstract class PointGame {
     int errors = 0;
     boolean ongoing = false;
     
-    int maxErrors = 3;
+    int maxErrors = 2;
     
     /**
      * Konstruktori luo uuden satunnaisen pelin.
@@ -30,10 +30,12 @@ public abstract class PointGame {
     }
     
     /**
-     * Metodi tarkistaa, onko arvaus oikein ja päivittää pelitilanteen.
+     * Metodi tarkistaa, onko arvaus oikein ja päivittää pelitilanteen. 
+     * Pelin päättyessä tulos talletetaan.
      * @param guess Käyttäjän arvaus
      * @param correct Oikea vastaus
      * @return True, jos arvaus oli oikein
+     * @see remorse.data.DatabaseHandler#saveScore(int, java.lang.String) 
      */
     public boolean checkGuess(String guess, String correct) {
         if (guess.equalsIgnoreCase(correct)) {
@@ -41,7 +43,7 @@ public abstract class PointGame {
             return true;
         } else {
             errors++;
-            if (errors >= maxErrors) {
+            if (errors > maxErrors) {
                 dbHandler.saveScore(points, type);
                 ongoing = false;
             }
@@ -50,10 +52,12 @@ public abstract class PointGame {
     }    
     
     /**
-     * Metodi aloittaa uuden pelin.
+     * Metodi aloittaa uuden pelin. 
+     * Jos pelaajalla on pisteitä, ne talletetaan.
+     * @see remorse.data.DatabaseHandler#saveScore(int, java.lang.String) 
      */
     public void newGame() {
-        if (ongoing) {
+        if (ongoing && points > 0) {
             dbHandler.saveScore(points, type);
         } 
         errors = 0;
@@ -63,9 +67,11 @@ public abstract class PointGame {
     
     /**
      * Metodi lopettaa pelin.
+     * Jos pelaajalla on pisteitä, ne talletetaan.
+     * @see remorse.data.DatabaseHandler#saveScore(int, java.lang.String) 
      */
     public void stopGame() {
-        if (ongoing) {
+        if (ongoing && points > 0) {
             dbHandler.saveScore(points, type);
         }        
         errors = 0;

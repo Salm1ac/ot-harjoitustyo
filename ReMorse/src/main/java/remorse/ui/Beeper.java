@@ -6,7 +6,6 @@ import javax.sound.midi.Synthesizer;
 
 /**
  * Luokka mahdollistaa yksinkertaisen äänen toiston.
- * @author risto
  */
 public class Beeper {
     
@@ -33,7 +32,7 @@ public class Beeper {
     }
     
     /**
-     * Metodi aloittaa 440 Hz äänen toiston kohtalaisen kovaa.
+     * Metodi aloittaa äänen toiston.
      * Oletuksena on nuotti 69 eli viritys-A.
      */
     public void turnOn() {

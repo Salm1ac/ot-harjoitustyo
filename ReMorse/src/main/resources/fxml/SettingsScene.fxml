@@ -26,11 +26,11 @@
             <Label alignment="TOP_LEFT" text="Äänenvoimakkuus" />
             <Label text="Äänen korkeus" GridPane.columnIndex="1" />
             <Label text="Aikayksikkö" GridPane.rowIndex="2" />
-            <Label text="Virheraja" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Maksimivirheet" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Slider fx:id="volumeSlider" max="127.0" value="100.0" GridPane.rowIndex="1" />
             <Slider fx:id="noteSlider" min="50.0" value="69.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Slider fx:id="timeUnitSlider" max="60.0" min="1.0" value="16.0" GridPane.rowIndex="3" />
-            <Slider fx:id="maxErrorsSlider" max="20.0" min="1.0" value="3.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider fx:id="maxErrorsSlider" max="20.0" value="2.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <Button fx:id="clearButton" layoutX="272.0" layoutY="261.0" mnemonicParsing="false" onAction="#clearButtonAction" text="Palauta" />

@@ -20,13 +20,20 @@ public class SettingsSceneController implements Initializable {
     private Beeper beeper;
     private LetterGame letterGame;
     private WordGame wordGame;
+    
+    private int defaultVolume = 100;
+    private int defaultNote = 69;
+    private int defaultTimeUnit = 16;
+    private int defaultMaxErrors = 2;
 
     /**
-     * Initializes the controller class.
+     * Metodi ei tällä hetkellä käytössä.
+     * @param url Ei käytössä
+     * @param rb Ei käytössä
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
     @FXML
@@ -43,8 +50,8 @@ public class SettingsSceneController implements Initializable {
     
     /**
      * Metodi yhdistää ohjaimen sovellukseen. Samalla ohjaimelle annetaan
-     * yhteinen bittijono, piipittäjä ja pelit.
-     *
+     * yhteinen bittijono, piipittäjä ja pelit. Lisäksi liukusäätimet 
+     * asetetaan kuuntelemaan muutoksia.     *
      * @param application Ohjainta käyttävä sovellus
      * @param seq Sovelluksen käyttämä bittijono
      * @param beeper Sovelluksen käyttämä piipittäjä
@@ -78,9 +85,27 @@ public class SettingsSceneController implements Initializable {
                                 });
     }
     
+    /**
+     * Metodi asettaa oletusasetukset.
+     * @param volume Oletusäänenvoimakkuus, 0-127
+     * @param note Oletusnuotti, 50-100
+     * @param timeUnit Oletusaikayksikkö, 1-60
+     * @param maxErrors Oletusvirheraja, 0-20
+     */
+    public void setDefaults(int volume, int note, int timeUnit, int maxErrors) {
+        defaultVolume = volume;
+        defaultNote = note;
+        defaultTimeUnit = timeUnit;
+        defaultMaxErrors = maxErrors;
+        clearButtonAction();
+    }
+    
     @FXML
     private Button returnButton;
     
+    /**
+     * Metodi palauttaa käyttäjän päävalikkoon.
+     */
     @FXML
     private void returnButtonAction() {
         this.application.setMainScene();
@@ -89,12 +114,15 @@ public class SettingsSceneController implements Initializable {
     @FXML
     private Button clearButton;
     
+    /**
+     * Metodi palauttaa sovelluksen oletusasetuksiin.
+     */
     @FXML
     private void clearButtonAction() {
-        volumeSlider.adjustValue(100);
-        noteSlider.adjustValue(69);
-        timeUnitSlider.adjustValue(16);
-        maxErrorsSlider.adjustValue(3);
+        volumeSlider.adjustValue(defaultVolume);
+        noteSlider.adjustValue(defaultNote);
+        timeUnitSlider.adjustValue(defaultTimeUnit);
+        maxErrorsSlider.adjustValue(defaultMaxErrors);
     }
     
 }

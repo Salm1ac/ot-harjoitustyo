@@ -43,8 +43,8 @@ public class LetterGame extends PointGame {
     }
     
     /**
-     * Metodi arpoo satunnaisen sanan ja parsii sen.
-     * @return Pari, jossa on satunnainen sana ja sen parsittu vastine
+     * Metodi arpoo satunnaisen kirjaimen ja parsii sen.
+     * @return Pari, jossa on satunnainen kirjain ja sen parsittu vastine
      * @see remorse.domain.Parser#parseString(java.lang.String) 
      */
     public String[] nextLetter() {
