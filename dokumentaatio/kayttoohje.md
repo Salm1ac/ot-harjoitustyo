@@ -2,6 +2,32 @@
 
 Viimeisin release on [tässä](https://github.com/Salm1ac/ot-harjoitustyo/releases/tag/lopullinen).
 
+## Konfigurointi
+
+Ohjelman voi konfiguroida laittamalla jar-tiedoston kanssa samaan kansioon `config.properties`-nimisen tiedoston. Tällä tiedostolla 
+on seuraava muoto: 
+
+`database=remorse.db` (käytettävän tietokannan nimi)
+
+`volume=100` (äänenvoimakkuus, 0-127)
+
+`note=69` (äänen korkeus, 50-100)
+
+`timeUnit=16` (aikayksikkö, 1-60)
+
+`maxErrors=2` (virheraja, 0-20)
+
+Käyttäjä voi asettaa nämä oletusasetukset mielensä mukaan. Käyttäjä voi myös halutessaan käyttää eri tietokantaa. 
+Tällöin tietokannassa tulisi olla seuraavanlaiset taulut:
+
+`Words(row_id integer PRIMARY KEY, word_string varchar(50)`
+`LetterScores(row_id integer PRIMARY KEY, points integer, time DATETIME DEFAULT (datetime('now', 'localtime')))`
+`WordScores(row_id integer PRIMARY KEY, points integer, time DATETIME DEFAULT (datetime('now', 'localtime')))`
+
+Sovelluksen mukana oleva tietokanta sisältää yli 92 000 suomen kielen sanaa. Sanat on indeksoitu, joten satunnaisten 
+sanojen hakeminen on huomattavan nopeaa. Lisäksi tietokannassa on valmiina muutama huipputulos, joiden avulla on 
+helpompaa huomata, onko tietokantayhteys onnistunut.
+
 ## Ohjelman käynnistäminen
 
 Ohjelman voi käynnistää ajamalla jar-tiedoston tiedostosijainnissa komennon
