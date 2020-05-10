@@ -33,6 +33,10 @@ Uuden pelin voi aloittaa koska tahansa, ja takaisin valikkoon voi palata valitse
 
 Pistetaulukoissa säilötään molemmista minipeleistä viisi parasta tulosta ja niiden ajankohdat. Molempien minipelien tulokset voi tyhjentää erikseen "Tyhjennä"-painikkeista. Takaisin päävalikkoon pääsee valitsemalla "Valikkoon".
 
+![pistetaulukot](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pistetaulukot.png)
+
 ## Asetukset
 
 Asetuksista voi säätää piipityksen äänenvoimakkuutta (0-127), korkeutta (50-100) ja nopeutta (1-60). Näistä kaksi ensimmäistä ovat MIDIn `velocity`- ja `note`-arvot. Kolmas kertoo morsepisteen pituuden, yksikkönä noin sekunnin kuudeskymmenesosa. Lisäksi käyttäjä voi valita, montako virhettä sallitaan ennen häviötä (0-20). Takaisin päävalikkoon pääsee valitsemalla "Valikkoon".
+
+![asetukset](https://github.com/Salm1ac/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/asetukset.png)
